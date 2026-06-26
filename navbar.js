@@ -50,8 +50,7 @@ const navbarHTML = `
 
         </div>
 
-        <div class="hidden xl:flex items-center gap-1.5 xl:gap-2">
-          
+        <div class="hidden xl:flex items-center gap-2 xl:gap-3">
           <div class="flex items-center gap-1.5 xl:gap-2 border-r border-gray-200 dark:border-slate-700 pr-2 xl:pr-3">
             <button id="theme-toggle" class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 dark:bg-slate-800 text-[#2F5D50] dark:text-white hover:bg-[#8FAF8A] hover:text-white dark:hover:bg-[#8FAF8A] dark:hover:text-black transition-colors" aria-label="Toggle Dark Mode">
               <i class="fa-solid fa-moon" id="theme-icon"></i>
@@ -60,7 +59,6 @@ const navbarHTML = `
               RTL
             </button>
           </div>
-
           <a href="login.html" class="px-4 xl:px-5 py-2.5 border-2 border-[#8FAF8A] text-[#8FAF8A] font-bold text-sm tracking-widest uppercase hover:bg-[#8FAF8A] hover:text-white dark:hover:text-black transition-colors duration-300 whitespace-nowrap">Log In</a>
           
           <a href="signup.html" class="flex items-center justify-center gap-2 px-5 xl:px-6 py-3 bg-[#8FAF8A] text-white dark:text-black font-bold text-sm tracking-widest uppercase hover:bg-[#2F5D50] dark:hover:bg-white transition-colors duration-300 shadow-[0_4px_14px_0_rgba(143,175,138,0.39)] whitespace-nowrap">
@@ -228,11 +226,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('#navbar a').forEach((link) => {
     if (link.getAttribute('href') === page) {
-      link.classList.add('text-[#8FAF8A]');
+      link.classList.add('text-[#8FAF8A]', 'dark:text-[#8FAF8A]');
       const parentBtn = link.closest('.absolute')?.closest('.relative')?.querySelector('button');
-      if (parentBtn) parentBtn.classList.add('text-[#8FAF8A]');
+      if (parentBtn) parentBtn.classList.add('text-[#8FAF8A]', 'dark:text-[#8FAF8A]');
       const toggleBtn = link.closest('.mobile-submenu')?.closest('.mobile-submenu-group')?.querySelector('.mobile-submenu-toggle');
-      if (toggleBtn) toggleBtn.classList.add('text-[#8FAF8A]');
+      if (toggleBtn) toggleBtn.classList.add('text-[#8FAF8A]', 'dark:text-[#8FAF8A]');
     }
   });
 });

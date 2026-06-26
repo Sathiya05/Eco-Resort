@@ -9,14 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="max-w-[1440px] mx-auto px-6 lg:px-10 py-16 grid gap-12 grid-cols-1 md:grid-cols-12">
 
     <div class="md:col-span-12 lg:col-span-4 pr-0 lg:pr-8">
-      <a href="index.html" class="flex items-center gap-2 group w-max mb-6">
-        <div class="w-11 h-11 rounded-full border-2 border-[#8FAF8A] flex items-center justify-center text-[#8FAF8A] group-hover:bg-[#8FAF8A] group-hover:text-[#000000] transition-colors duration-300">
-          <i class="fa-solid fa-leaf text-lg"></i>
-        </div>
-        <span class="font-heading font-bold text-2xl tracking-widest uppercase text-[#2C3E35]">
-          Eco<span class="text-[#8FAF8A]">Retreat</span>
-        </span>
-      </a>
+        <a href="index.html" class="relative z-[60] flex items-center gap-3 group shrink-0">
+                    <div class="w-11 h-11 rounded-full border-2 border-sage flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-black transition-colors shadow-lg shadow-sage/20">
+                        <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight text-forest dark:text-white uppercase transition-colors">
+                            Eco<span class="text-sage">Retreat</span>
+                        </span>
+                        <span class="text-[9px] tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 font-bold leading-none mt-1">
+                            Luxury Glamping
+                        </span>
+                    </div>
+                </a>
+                <br>
       
       <p class="text-sm font-medium text-[#2C3E35]/80 leading-relaxed mb-8">
         Escape the ordinary. Experience sustainable luxury and breathtaking nature at our premier eco-resort and glamping sanctuary. Disconnect to reconnect.
