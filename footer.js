@@ -45,17 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
       <h3 class="text-sm font-black mb-6 uppercase tracking-widest text-[#8FAF8A] border-b-2 inline-block pb-2 border-[#8FAF8A]/30">Explore</h3>
       <ul class="space-y-3 text-sm font-semibold">
         <li><a href="glamping.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Luxury Glamping</a></li>
-        <li><a href="resort.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Eco Villas</a></li>
+        <li><a href="villas.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Eco Villas</a></li>
         <li><a href="experiences.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Experiences</a></li>
-        <li><a href="sustainability.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Our Ethos</a></li>
+        <li><a href="about.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Our Ethos</a></li>
       </ul>
     </div>
 
     <div class="md:col-span-4 lg:col-span-2">
       <h3 class="text-sm font-black mb-6 uppercase tracking-widest text-[#8FAF8A] border-b-2 inline-block pb-2 border-[#8FAF8A]/30"> Portal</h3>
       <ul class="space-y-3 text-sm font-semibold">
-        <li><a href="profile.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">My Profile</a></li>
-        <li><a href="bookings.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">My Bookings</a></li>
+        <li><a href="user.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">My Profile</a></li>
+        <li><a href="user.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">My Bookings</a></li>
         <li><a href="login.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Guest Login</a></li>
         <li><a href="contact.html" class="footer-link block text-[#2C3E35]/80 transition-all duration-300">Contact Us</a></li>
       </ul>
