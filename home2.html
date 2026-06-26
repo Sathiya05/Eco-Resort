@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRetreat | Sustainable Luxury Resort & Glamping</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24">
+
+    <section class="relative h-[85vh] min-h-[650px] flex items-center justify-center overflow-hidden">
+      <img src="images\bg4.avif" alt="Campfire under stars" class="absolute inset-0 w-full h-full object-cover z-0">
+      <div class="absolute inset-0 bg-gradient-to-r from-forest/80 via-forest/50 to-black/70 z-0"></div>
+      <div class="relative z-10 max-w-[1000px] mx-auto px-6 text-center">
+        <span class="inline-block py-1 px-3 border border-sage text-sage text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm bg-forest/30">Escape the Ordinary</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white leading-tight mb-6">Nature's <span class="text-sage italic">Finest</span> Retreat.</h1>
+        <p class="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto mb-10 leading-relaxed">Where wilderness meets wonder — discover a sanctuary crafted for dreamers, explorers, and those seeking the extraordinary.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="book.html" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300 shadow-lg">Reserve Your Stay</a>
+          <a href="experiences.html" class="px-8 py-4 border-2 border-white text-white font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-forest transition-colors duration-300 backdrop-blur-sm">Discover More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-3 gap-10">
+          <div class="text-center p-8 rounded-2xl bg-offwhite dark:bg-slate-700 shadow-lg">
+            <div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-6"><i class="fa-solid fa-tree"></i></div>
+            <h3 class="text-xl font-heading font-bold text-forest dark:text-white mb-3">Immersive Nature</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">Wake up to birdsong, fall asleep to crickets. Every places at heart of wilder without sacrificing comfort.</p>
+          </div>
+          <div class="text-center p-8 rounded-2xl bg-offwhite dark:bg-slate-700 shadow-lg">
+            <div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-6"><i class="fa-solid fa-leaf"></i></div>
+            <h3 class="text-xl font-heading font-bold text-forest dark:text-white mb-3">Zero Impact</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">Solar-powered, plastic-free, and built with reclaimed materials. Luxury that treads lightly on the earth.</p>
+          </div>
+          <div class="text-center p-8 rounded-2xl bg-offwhite dark:bg-slate-700 shadow-lg">
+            <div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-6"><i class="fa-solid fa-star"></i></div>
+            <h3 class="text-xl font-heading font-bold text-forest dark:text-white mb-3">Curated Luxury</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">From private chefs to guided expeditions, every detail is tailored to create an unforgettable escape.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative h-[400px] md:h-[550px] rounded-2xl overflow-hidden shadow-2xl lg:order-2">
+            <img src="images\img4.avif" alt="Luxury safari tent" class="w-full h-full object-cover">
+          </div>
+          <div class="lg:order-1">
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Why EcoRetreat</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-6">A different kind of escape.</h2>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-6">We believe the best experiences are born at the intersection of adventure and comfort. Our eco-retreat offers a curated blend of outdoor exploration and refined hospitality, set against the backdrop of pristine wilderness.</p>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-8">Each stay is designed to help you disconnect from the noise and reconnect with what matters — nature, loved ones, and yourself.</p>
+            <a href="about.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage dark:hover:text-sage transition-colors group uppercase tracking-wide text-sm">Learn Our Story <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Exclusive Offers</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Seasonal escapes.</h2>
+          <p class="text-white/80 font-medium leading-relaxed">Limited-time packages curated for each season — from spring foraging weekends to winter stargazing retreats.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="group bg-white/5 backdrop-blur-sm border border-sage/20 p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+            <div class="text-sage text-3xl mb-5"><i class="fa-solid fa-seedling"></i></div>
+            <h3 class="text-xl font-heading font-bold mb-3">Spring Revival</h3>
+            <p class="text-white/70 text-sm leading-relaxed mb-6">3-night stay with guided foraging, farm-to-table dinner, and a forest bathing session.</p>
+            <p class="text-sage font-heading font-bold text-2xl">$899<span class="text-white/50 text-sm font-normal"> / person</span></p>
+          </div>
+          <div class="group bg-white/5 backdrop-blur-sm border border-sage/20 p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+            <div class="text-sage text-3xl mb-5"><i class="fa-solid fa-sun"></i></div>
+            <h3 class="text-xl font-heading font-bold mb-3">Summer Solstice</h3>
+            <p class="text-white/70 text-sm leading-relaxed mb-6">5-night all-inclusive with daily expeditions, spa and sunset dining experiences.</p>
+            <p class="text-sage font-heading font-bold text-2xl">$1,899<span class="text-white/50 text-sm font-normal"> / person</span></p>
+          </div>
+          <div class="group bg-white/5 backdrop-blur-sm border border-sage/20 p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+            <div class="text-sage text-3xl mb-5"><i class="fa-solid fa-snowflake"></i></div>
+            <h3 class="text-xl font-heading font-bold mb-3">Winter Escape</h3>
+            <p class="text-white/70 text-sm leading-relaxed mb-6">4-night cozy retreat with heated domes, hot springs, and wine by the fire wood.</p>
+            <p class="text-sage font-heading font-bold text-2xl">$1,299<span class="text-white/50 text-sm font-normal"> / person</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Awards & Recognition</span>
+          <h2 class="text-3xl md:text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Globally recognized.</h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-5 lg:gap-8 items-start">
+          <div class="text-center p-4 sm:p-4 lg:p-6 border border-sage/10 rounded-xl bg-offwhite dark:bg-slate-700">
+            <p class="text-sage text-xl sm:text-xl lg:text-3xl mb-2 lg:mb-3"><i class="fa-solid fa-award"></i></p>
+            <p class="text-forest dark:text-white font-heading font-bold text-[11px] sm:text-[11px] lg:text-sm leading-tight lg:leading-normal">World's Best Eco-Resort</p>
+            <p class="text-black/50 dark:text-white/50 text-[10px] sm:text-[10px] lg:text-xs mt-1">Travel & Leisure 2025</p>
+          </div>
+          <div class="text-center p-4 sm:p-4 lg:p-6 border border-sage/10 rounded-xl bg-offwhite dark:bg-slate-700">
+            <p class="text-sage text-xl sm:text-xl lg:text-3xl mb-2 lg:mb-3"><i class="fa-solid fa-medal"></i></p>
+            <p class="text-forest dark:text-white font-heading font-bold text-[11px] sm:text-[11px] lg:text-sm leading-tight lg:leading-normal">Green Key Certified</p>
+            <p class="text-black/50 dark:text-white/50 text-[10px] sm:text-[10px] lg:text-xs mt-1">Sustainability Gold</p>
+          </div>
+          <div class="text-center p-4 sm:p-4 lg:p-6 border border-sage/10 rounded-xl bg-offwhite dark:bg-slate-700">
+            <p class="text-sage text-xl sm:text-xl lg:text-3xl mb-2 lg:mb-3"><i class="fa-solid fa-trophy"></i></p>
+            <p class="text-forest dark:text-white font-heading font-bold text-[11px] sm:text-[11px] lg:text-sm leading-tight lg:leading-normal"> Glamping Destination</p>
+            <p class="text-black/50 dark:text-white/50 text-[10px] sm:text-[10px] lg:text-xs mt-1">National Geographic 2024</p>
+          </div>
+          <div class="text-center p-4 sm:p-4 lg:p-6 border border-sage/10 rounded-xl bg-offwhite dark:bg-slate-700">
+            <p class="text-sage text-xl sm:text-xl lg:text-3xl mb-2 lg:mb-3"><i class="fa-solid fa-star"></i></p>
+            <p class="text-forest dark:text-white font-heading font-bold text-[11px] sm:text-[11px] lg:text-sm leading-tight lg:leading-normal">5-Star Excellence</p>
+            <p class="text-black/50 dark:text-white/50 text-[10px] sm:text-[10px] lg:text-xs mt-1">TripAdvisor 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="images\bg2.webp" alt="Wellness retreat" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Wellness</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-6">Reconnect with yourself.</h2>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-6">Our wellness program combines ancient practices with modern luxury. From sunrise yoga on the ridge to guided meditation in the forest, every activity is designed to ground you in the present moment.</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check-circle text-sage"></i>Daily Yoga & Meditation</div>
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check-circle text-sage"></i>Forest Bathing Guides</div>
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check-circle text-sage"></i>Open-Air Spa Treatments</div>
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check-circle text-sage"></i>Breathwork Sessions</div>
+            </div>
+            <a href="experiences.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage dark:hover:text-sage transition-colors group uppercase tracking-wide text-sm">Explore Wellness <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">From Our Guests</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Real stories, real magic.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="bg-white/5 border border-sage/20 p-8 rounded-2xl">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-white/80 text-sm leading-relaxed italic mb-6">"The most magical stay of our lives. The staff anticipated our every need and the setting was otherworldly."</p>
+            <p class="text-sage font-heading font-bold text-sm">— Amara & David</p>
+          </div>
+          <div class="bg-white/5 border border-sage/20 p-8 rounded-2xl">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-white/80 text-sm leading-relaxed italic mb-6">"I've never felt so at peace. The combination of luxury and untouched nature is exactly what our family needed."</p>
+            <p class="text-sage font-heading font-bold text-sm">— The Chen Family</p>
+          </div>
+          <div class="bg-white/5 border border-sage/20 p-8 rounded-2xl">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-white/80 text-sm leading-relaxed italic mb-6">"The foraging dinner was a culinary adventure like no other. We left the one feeling restored and inspired."</p>
+            <p class="text-sage font-heading font-bold text-sm">— Marcus & Elena</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="relative overflow-hidden rounded-2xl bg-forest dark:bg-slate-950 px-8 py-16 md:p-20">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-sage/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-48 h-48 bg-sage/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          <div class="relative z-10 max-w-2xl mx-auto text-center text-white">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">Ready to escape?</h2>
+            <p class="text-white/80 font-medium leading-relaxed mb-10">Book your stay today and discover the perfect harmony of sustainable luxury and wild beauty.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="book.html" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300">Book Now</a>
+              <a href="contact.html" class="px-8 py-4 border-2 border-white text-white font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-forest transition-colors duration-300">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
+
+
+

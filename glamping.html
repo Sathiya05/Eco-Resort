@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Glamping | EcoRetreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24">
+
+    <section class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <img src="images\img7.avif" alt="Luxury glamping tent" class="absolute inset-0 w-full h-full object-cover z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-forest/80 via-forest/50 to-black/70 z-0"></div>
+      <div class="relative z-10 max-w-[900px] mx-auto px-6 text-center">
+        <span class="inline-block py-1 px-3 border border-sage text-sage text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm bg-forest/30">Luxury Glamping</span>
+        <h1 class="text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-6">Sleep under <span class="text-sage italic">the stars</span>.</h1>
+        <p class="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed mb-10">Our signature canvas safari tents and geodesic domes blend rustic charm with five-star comfort.</p>
+        <a href="#tents" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300 shadow-lg inline-block">Explore Tents</a>
+      </div>
+    </section>
+
+    <section id="tents" class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Our Tents</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Choose your canvas.</h2>
+          <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">Each accommodation is thoughtfully positioned for privacy, views, and immersion in nature.</p>
+        </div>
+        <div class="space-y-20">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+              <img src="images\1.avif" alt="Safari Canopy tent" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <div class="inline-block bg-sage/10 text-sage px-3 py-1 text-xs font-bold tracking-widest uppercase rounded mb-4">Glamping</div>
+              <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">The Safari Canopy</h3>
+              <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Our flagship accommodation, the Safari Canopy, offers 500 sq ft of beautifully appointed space under canvas. Each tent features a king-sized memory foam bed, en-suite bathroom with an outdoor rainfall shower, a private deck with a fire pit, and panoramic views of the valley.</p>
+              <div class="grid grid-cols-2 gap-3 mb-8">
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>King-sized bed</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Outdoor shower</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Private fire pit</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Climate control</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Wi-Fi & Bluetooth speaker</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Eco-friendly toiletries</div>
+              </div>
+              <div class="flex items-center justify-between border-t border-sage/20 pt-6">
+                <span class="text-forest dark:text-white font-heading font-bold text-2xl">$350<span class="text-black/50 dark:text-white/50 text-sm font-normal"> / night</span></span>
+                <a href="book.html" class="px-6 py-3 bg-forest text-white text-sm font-bold tracking-widest uppercase hover:bg-sage transition-colors duration-300">Book Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl lg:order-2">
+              <img src="images\2.avif" alt="Geodesic dome" class="w-full h-full object-cover">
+            </div>
+            <div class="lg:order-1">
+              <div class="inline-block bg-sage/10 text-sage px-3 py-1 text-xs font-bold tracking-widest uppercase rounded mb-4">Dome</div>
+              <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">The Stargazer Dome</h3>
+              <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Our geodesic domes offer a truly immersive experience with a transparent ceiling that puts the night sky on full display. Each dome is climate-controlled and features a plush queen bed, a compact en-suite, and a private outdoor soaking tub. Perfect for couples seeking a romantic, one-of-a-kind stay.</p>
+              <div class="grid grid-cols-2 gap-3 mb-8">
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Transparent stargazing ceiling</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Private soaking tub</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Queen-sized bed</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Heated floors</div>
+              </div>
+              <div class="flex items-center justify-between border-t border-sage/20 pt-6">
+                <span class="text-forest dark:text-white font-heading font-bold text-2xl">$450<span class="text-black/50 dark:text-white/50 text-sm font-normal"> / night</span></span>
+                <a href="book.html" class="px-6 py-3 bg-forest text-white text-sm font-bold tracking-widest uppercase hover:bg-sage transition-colors duration-300">Book Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+              <img src="images\3.avif  " alt="Treehouse suite" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <div class="inline-block bg-sage/10 text-sage px-3 py-1 text-xs font-bold tracking-widest uppercase rounded mb-4">Signature</div>
+              <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">The Canopy Treehouse</h3>
+              <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Suspended among the treetops, our two-story treehouse offers a truly elevated experience. The lower level features a living area with a wood-burning stove, while the upper level houses a king bed with wraparound windows. A spiral staircase leads to a crow's nest observation deck with 360-degree valley views.</p>
+              <div class="grid grid-cols-2 gap-3 mb-8">
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Two-story treehouse</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Wood-burning stove</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Observation deck</div>
+                <div class="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-check text-sage"></i>Outdoor hammock</div>
+              </div>
+              <div class="flex items-center justify-between border-t border-sage/20 pt-6">
+                <span class="text-forest dark:text-white font-heading font-bold text-2xl">$550<span class="text-black/50 dark:text-white/50 text-sm font-normal"> / night</span></span>
+                <a href="book.html" class="px-6 py-3 bg-forest text-white text-sm font-bold tracking-widest uppercase hover:bg-sage transition-colors duration-300">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Amenities</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Everything you need.</h2>
+          <p class="text-white/80 font-medium leading-relaxed">We've thought of every detail so you can focus on what matters — relaxing and exploring.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-wifi"></i></div><p class="text-sm font-bold text-white">High-Speed Wi-Fi</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-temperature-low"></i></div><p class="text-sm font-bold text-white">Climate Control</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-soap"></i></div><p class="text-sm font-bold text-white">Eco-Toiletries</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-mug-hot"></i></div><p class="text-sm font-bold text-white">Coffee & Tea Bar</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-bath"></i></div><p class="text-sm font-bold text-white">Outdoor Shower</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-fire"></i></div><p class="text-sm font-bold text-white">Private Fire Pit</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-bed"></i></div><p class="text-sm font-bold text-white">Premium Bedding</p></div>
+          <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-2xl"><div class="text-sage text-2xl mb-3"><i class="fa-solid fa-lock"></i></div><p class="text-sm font-bold text-white">In-Room Safe</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Included</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Every stay includes.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="flex flex-col items-center text-center p-6"><div class="w-16 h-16 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center text-2xl mb-4 shadow-lg"><i class="fa-solid fa-utensils"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-2">Farm Breakfast</h3><p class="text-black/60 dark:text-white/60 text-sm">Daily locally sourced breakfast delivered to your tent or enjoyed in our open-air pavilion.</p></div>
+          <div class="flex flex-col items-center text-center p-6"><div class="w-16 h-16 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center text-2xl mb-4 shadow-lg"><i class="fa-solid fa-car"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-2">Complimentary Shuttle</h3><p class="text-black/60 dark:text-white/60 text-sm">On-call electric shuttle service to all resort amenities, trailheads, and the reception area.</p></div>
+          <div class="flex flex-col items-center text-center p-6"><div class="w-16 h-16 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center text-2xl mb-4 shadow-lg"><i class="fa-solid fa-spa"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-2">Wellness Access</h3><p class="text-black/60 dark:text-white/60 text-sm">Complimentary access to daily yoga classes, meditation sessions, and our forest bathing trails.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Testimonials</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Glamping guest stories.</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-slate-700 p-8 rounded-2xl shadow-lg">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-6">"The Safari Canopy was pure magic. Falling asleep to the sound of the forest and waking up to that view — we've never felt more relaxed."</p>
+            <p class="text-forest dark:text-white font-heading font-bold text-sm">— Jessica T.</p>
+          </div>
+          <div class="bg-white dark:bg-slate-700 p-8 rounded-2xl shadow-lg">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-6">"The Stargazer Dome was the most romantic experience we've ever had. The glass ceiling made us feel like we were sleeping under the Milky Way."</p>
+            <p class="text-forest dark:text-white font-heading font-bold text-sm">— Daniel & Priya</p>
+          </div>
+          <div class="bg-white dark:bg-slate-700 p-8 rounded-2xl shadow-lg md:col-span-2 lg:col-span-1">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-6">"The treehouse was an absolute dream. My kids are still talking about the spiral staircase and the crow's nest. We'll be back every year."</p>
+            <p class="text-forest dark:text-white font-heading font-bold text-sm">— The Patel Family</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10 text-center">
+        <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Gallery</span>
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Life under canvas.</h2>
+        <p class="text-white/80 font-medium leading-relaxed max-w-2xl mx-auto mb-12">A glimpse into the glamping experience at EcoRetreat.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="relative overflow-hidden rounded-2xl aspect-square shadow-lg"><img src="images\img8.avif" alt="Tent interior" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"></div>
+          <div class="relative overflow-hidden rounded-2xl aspect-square shadow-lg"><img src="images\img9.avif" alt="Campfire" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"></div>
+          <div class="relative overflow-hidden rounded-2xl aspect-square shadow-lg"><img src="images\img10.avif" alt="Forest view" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"></div>
+          <div class="relative overflow-hidden rounded-2xl aspect-square shadow-lg"><img src="images\img11.avif" alt="Outdoor dining" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="relative overflow-hidden rounded-2xl bg-forest dark:bg-slate-950 px-8 py-16 md:p-20 text-center">
+          <div class="relative z-10 max-w-2xl mx-auto text-white">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">Ready to glamp?</h2>
+            <p class="text-white/80 font-medium leading-relaxed mb-10">Book your tent and experience the perfect blend of adventure and luxury.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="book.html" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300">Check Availability</a>
+              <a href="experiences.html" class="px-8 py-4 border-2 border-white text-white font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-forest transition-colors duration-300">View Activities</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
+
+

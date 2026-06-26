@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | EcoRetreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24">
+
+    <section class="relative h-[60vh] min-h-[450px] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2940&auto=format&fit=crop" alt="Mountain lake sunset" class="absolute inset-0 w-full h-full object-cover z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-forest/80 via-forest/50 to-black/70 z-0"></div>
+      <div class="relative z-10 max-w-[800px] mx-auto px-6 text-center">
+        <span class="inline-block py-1 px-3 border border-sage text-sage text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm bg-forest/30">Get in Touch</span>
+        <h1 class="text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-6">We'd love to <span class="text-sage italic">hear</span> from you.</h1>
+        <p class="text-lg md:text-xl text-white/90 font-light max-w-xl mx-auto leading-relaxed">Have a question about bookings, experiences, or sustainability? Our team is here to help.</p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Send a Message</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-8">Let's start a conversation.</h2>
+            <form class="space-y-6" id="contactForm">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div><label class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">First Name</label><input type="text" required class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm"></div>
+                <div><label class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">Last Name</label><input type="text" required class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm"></div>
+              </div>
+              <div><label class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">Email Address</label><input type="email" required placeholder="your@email.com" class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm"></div>
+              <div><label class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">Subject</label><select required class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm"><option value="">Select a topic...</option><option>Booking Inquiry</option><option>Group Retreats</option><option>Corporate Events</option><option>Media & Press</option><option>Sustainability Partnership</option><option>General Question</option></select></div>
+              <div><label class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">Message</label><textarea rows="5" required placeholder="Tell us how we can help..." class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm"></textarea></div>
+              <button type="submit" class="w-full py-3.5 rounded-xl font-bold tracking-widest uppercase text-sm bg-forest text-white transition-all duration-300 hover:bg-sage shadow-lg">Send Message</button>
+            </form>
+          </div>
+          <div class="lg:pl-12 lg:border-l border-sage/20">
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Contact Info</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-10">Find us here.</h2>
+            <div class="space-y-8">
+              <div class="flex gap-5">
+                <div class="w-14 h-14 rounded-xl bg-forest text-sage flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                <div><p class="font-heading font-bold text-forest dark:text-white mb-1">Address</p><p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">42 Valley View Road, Alpine Valley,<br>CA 93602, United States</p></div>
+              </div>
+              <div class="flex gap-5">
+                <div class="w-14 h-14 rounded-xl bg-forest text-sage flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-phone"></i></div>
+                <div><p class="font-heading font-bold text-forest dark:text-white mb-1">Phone</p><p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">+1 (555) 123-4567<br>Toll-free: 1-800-ECO-RETREAT</p></div>
+              </div>
+              <div class="flex gap-5">
+                <div class="w-14 h-14 rounded-xl bg-forest text-sage flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-envelope"></i></div>
+                <div><p class="font-heading font-bold text-forest dark:text-white mb-1">Email</p><p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">hello@ecoretreat.com<br>bookings@ecoretreat.com</p></div>
+              </div>
+              <div class="flex gap-5">
+                <div class="w-14 h-14 rounded-xl bg-forest text-sage flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-clock"></i></div>
+                <div><p class="font-heading font-bold text-forest dark:text-white mb-1">Hours</p><p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">Reservations: Daily 7am - 10pm<br>Front Desk: 24/7</p></div>
+              </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-sage/20">
+              <p class="font-heading font-bold text-forest dark:text-white mb-4">Follow the adventure</p>
+              <div class="flex gap-3">
+                <a href="#" aria-label="Instagram" class="w-11 h-11 flex items-center justify-center rounded-xl bg-forest text-sage hover:bg-sage hover:text-white transition-all duration-300"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook" class="w-11 h-11 flex items-center justify-center rounded-xl bg-forest text-sage hover:bg-sage hover:text-white transition-all duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter" class="w-11 h-11 flex items-center justify-center rounded-xl bg-forest text-sage hover:bg-sage hover:text-white transition-all duration-300"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Pinterest" class="w-11 h-11 flex items-center justify-center rounded-xl bg-forest text-sage hover:bg-sage hover:text-white transition-all duration-300"><i class="fa-brands fa-pinterest-p"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f18cdb7?q=80&w=2940&auto=format&fit=crop" alt="Map of mountain region" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-forest/30 flex items-center justify-center">
+            <div class="text-center text-white">
+              <div class="w-16 h-16 rounded-full bg-sage text-black flex items-center justify-center text-2xl mx-auto mb-4"><i class="fa-solid fa-map-pin"></i></div>
+              <p class="text-lg font-heading font-bold">EcoRetreat Luxury Glamping</p>
+              <p class="text-white/80 text-sm">42 Valley View Road, Alpine Valley, CA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">FAQ</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Frequently asked questions.</h2>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+          <details class="group bg-offwhite dark:bg-slate-700 rounded-xl overflow-hidden border border-sage/10">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-forest dark:text-white font-heading font-bold text-sm uppercase tracking-wider list-none">What is the best time to visit?<i class="fa-solid fa-chevron-down text-sage transition-transform group-open:rotate-180"></i></summary>
+            <div class="px-6 pb-6 text-black/70 dark:text-white/70 text-sm leading-relaxed">Each season offers a unique experience. Spring (March-May) brings wildflowers and mild temperatures. Summer (June-August) is perfect for hiking and stargazing. Fall (September-November) offers stunning foliage and foraging. Winter (December-February) is cozy with snow-dusted landscapes.</div>
+          </details>
+          <details class="group bg-offwhite dark:bg-slate-700 rounded-xl overflow-hidden border border-sage/10">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-forest dark:text-white font-heading font-bold text-sm uppercase tracking-wider list-none">How do I get to EcoRetreat?<i class="fa-solid fa-chevron-down text-sage transition-transform group-open:rotate-180"></i></summary>
+            <div class="px-6 pb-6 text-black/70 dark:text-white/70 text-sm leading-relaxed">We are located a 2-hour drive from Alpine City International Airport. We offer complimentary shuttle pickup from the airport and the nearby train station. Detailed directions are provided upon booking.</div>
+          </details>
+          <details class="group bg-offwhite dark:bg-slate-700 rounded-xl overflow-hidden border border-sage/10">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-forest dark:text-white font-heading font-bold text-sm uppercase tracking-wider list-none">What is your cancellation policy?<i class="fa-solid fa-chevron-down text-sage transition-transform group-open:rotate-180"></i></summary>
+            <div class="px-6 pb-6 text-black/70 dark:text-white/70 text-sm leading-relaxed">Free cancellation up to 14 days before check-in. 50% refund for cancellations 7-13 days prior. No refund for cancellations within 7 days. We recommend travel insurance for peace of mind.</div>
+          </details>
+          <details class="group bg-offwhite dark:bg-slate-700 rounded-xl overflow-hidden border border-sage/10">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-forest dark:text-white font-heading font-bold text-sm uppercase tracking-wider list-none">Are pets allowed?<i class="fa-solid fa-chevron-down text-sage transition-transform group-open:rotate-180"></i></summary>
+            <div class="px-6 pb-6 text-black/70 dark:text-white/70 text-sm leading-relaxed">Yes! We are a pet-friendly resort. Select safari tents and eco-villas are designated pet-friendly. A one-time cleaning fee of $75 applies. Please notify us at the time of booking.</div>
+          </details>
+          <details class="group bg-offwhite dark:bg-slate-700 rounded-xl overflow-hidden border border-sage/10">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-forest dark:text-white font-heading font-bold text-sm uppercase tracking-wider list-none">What should I pack?<i class="fa-solid fa-chevron-down text-sage transition-transform group-open:rotate-180"></i></summary>
+            <div class="px-6 pb-6 text-black/70 dark:text-white/70 text-sm leading-relaxed">Comfortable hiking shoes, layered clothing (evenings get cool), swimwear, a reusable water bottle, and a sense of adventure. We provide eco-friendly toiletries, robes, and slippers in every accommodation.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid md:grid-cols-3 gap-10 text-center">
+          <div class="p-6"><p class="text-4xl font-heading font-bold text-sage mb-2">500+</p><p class="text-white/80 text-sm">5-Star Reviews</p></div>
+          <div class="p-6"><p class="text-4xl font-heading font-bold text-sage mb-2">98%</p><p class="text-white/80 text-sm">Guest Satisfaction</p></div>
+          <div class="p-6"><p class="text-4xl font-heading font-bold text-sage mb-2">24/7</p><p class="text-white/80 text-sm">Guest Support</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="relative overflow-hidden rounded-2xl bg-offwhite dark:bg-slate-700 px-8 py-16 md:p-20 text-center border border-sage/10">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-6">Ready to book your escape?</h2>
+          <p class="text-black/60 dark:text-white/60 max-w-xl mx-auto mb-8 text-sm leading-relaxed">Our team is standing by to help you plan the perfect stay. Reach out and let's make it unforgettable.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="book.html" class="px-8 py-4 bg-forest text-white font-bold text-sm tracking-widest uppercase hover:bg-sage transition-colors duration-300 shadow-lg">Book Now</a>
+            <a href="tel:+15551234567" class="px-8 py-4 border-2 border-forest dark:border-white text-forest dark:text-white font-bold text-sm tracking-widest uppercase hover:bg-forest hover:text-white transition-colors duration-300">Call Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for reaching out! Our team will respond within 24 hours.');
+    });
+  </script>
+</body>
+</html>
+
+

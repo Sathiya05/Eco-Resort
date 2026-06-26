@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Villas | EcoRetreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24">
+
+    <section class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <img src="images\bg6.avif" alt="Eco villa" class="absolute inset-0 w-full h-full object-cover z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-forest/80 via-forest/50 to-black/70 z-0"></div>
+      <div class="relative z-10 max-w-[900px] mx-auto px-6 text-center">
+        <span class="inline-block py-1 px-3 border border-sage text-sage text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm bg-forest/30">Eco Villas</span>
+        <h1 class="text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-6">Architecture in <span class="text-sage italic">harmony</span>.</h1>
+        <p class="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed mb-10">Our glass eco-villas blend modernist design with sustainable living — each one a private sanctuary with panoramic valley views.</p>
+        <a href="#overview" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300 shadow-lg inline-block">Explore Villas</a>
+      </div>
+    </section>
+
+    <section id="overview" class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Our Collection</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Three villas, one philosophy.</h2>
+          <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">Each villa is a masterpiece of sustainable architecture, designed to frame nature's beauty through floor-to-ceiling windows while treading lightly on the earth.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <div class="group bg-offwhite dark:bg-slate-700 rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images\bg6.avif" alt="Glass villa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4"><span class="bg-sage text-black px-3 py-1 text-xs font-bold tracking-widest uppercase">Signature</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-heading font-bold text-forest dark:text-white mb-3">Glass Eco-Villa</h3>
+              <p class="text-black/60 dark:text-white/60 text-sm leading-relaxed mb-5">Floor-to-ceiling glass walls, private plunge pool, green roof terrace. Sleeps 4 in 2 bedrooms.</p>
+              <div class="flex items-center justify-between border-t border-sage/20 pt-5">
+                <span class="text-forest dark:text-white font-heading font-bold text-xl">$650<span class="text-black/40 dark:text-white/40 text-xs font-normal"> / night</span></span>
+                <a href="book.html" class="text-sage hover:text-forest dark:hover:text-white font-bold text-sm tracking-wide uppercase transition-colors">Book</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="group bg-offwhite dark:bg-slate-700 rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images\21.avif" alt="Cliffside villa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4"><span class="bg-forest text-sage px-3 py-1 text-xs font-bold tracking-widest uppercase">Premium</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-heading font-bold text-forest dark:text-white mb-3">Cliffside Villa</h3>
+              <p class="text-black/60 dark:text-white/60 text-sm leading-relaxed mb-5">Infinity hot tub, cantilevered deck, outdoor kitchen, double-sided fireplace. Sleeps 6 in 3 bedrooms.</p>
+              <div class="flex items-center justify-between border-t border-sage/20 pt-5">
+                <span class="text-forest dark:text-white font-heading font-bold text-xl">$1,200<span class="text-black/40 dark:text-white/40 text-xs font-normal"> / night</span></span>
+                <a href="book.html" class="text-sage hover:text-forest dark:hover:text-white font-bold text-sm tracking-wide uppercase transition-colors">Book</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="group bg-offwhite dark:bg-slate-700 rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img src="images\22.avif" alt="Garden villa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4"><span class="bg-sage text-black px-3 py-1 text-xs font-bold tracking-widest uppercase">Family</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-heading font-bold text-forest dark:text-white mb-3">Garden Villa</h3>
+              <p class="text-black/60 dark:text-white/60 text-sm leading-relaxed mb-5">Private garden, outdoor dining pavilion, kids' play area, living green roof. Sleeps 5 in 2 bedrooms.</p>
+              <div class="flex items-center justify-between border-t border-sage/20 pt-5">
+                <span class="text-forest dark:text-white font-heading font-bold text-xl">$750<span class="text-black/40 dark:text-white/40 text-xs font-normal"> / night</span></span>
+                <a href="book.html" class="text-sage hover:text-forest dark:hover:text-white font-bold text-sm tracking-wide uppercase transition-colors">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Why Choose a Villa</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">More space, more privacy.</h2>
+          <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">Our villas offer the ultimate in luxury — expansive living areas, private amenities, and complete seclusion.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center p-8 bg-white dark:bg-slate-700 rounded-2xl shadow-lg"><div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-5"><i class="fa-solid fa-people-arrows"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-3">Total Privacy</h3><p class="text-black/60 dark:text-white/60 text-sm leading-relaxed">Each villa is positioned with generous spacing and natural screening — you won't see or hear your neighbors.</p></div>
+          <div class="text-center p-8 bg-white dark:bg-slate-700 rounded-2xl shadow-lg"><div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-5"><i class="fa-solid fa-expand"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-3">Spacious Living</h3><p class="text-black/60 dark:text-white/60 text-sm leading-relaxed">From 1,200 to 2,500 sq ft of indoor-outdoor living space with full kitchens, living rooms, and private decks.</p></div>
+          <div class="text-center p-8 bg-white dark:bg-slate-700 rounded-2xl shadow-lg"><div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-5"><i class="fa-solid fa-water-ladder"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-3">Private Pool / Hot Tub</h3><p class="text-black/60 dark:text-white/60 text-sm leading-relaxed">Every villa comes with its own plunge pool, soaking tub, or infinity hot tub — yours alone, always ready.</p></div>
+          <div class="text-center p-8 bg-white dark:bg-slate-700 rounded-2xl shadow-lg"><div class="w-16 h-16 rounded-full bg-forest text-sage flex items-center justify-center text-2xl mx-auto mb-5"><i class="fa-solid fa-bell-concierge"></i></div><h3 class="font-heading font-bold text-forest dark:text-white mb-3">Dedicated Butler</h3><p class="text-black/60 dark:text-white/60 text-sm leading-relaxed">A personal butler is assigned to your villa for the duration of your stay, handling every request.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Features</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Designed for living.</h2>
+          <p class="text-white/80 font-medium leading-relaxed">Every villa is crafted with sustainable materials and smart technology to ensure comfort without compromise.</p>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-leaf"></i></div><h3 class="font-heading font-bold text-sm mb-2">Sustainable Materials</h3><p class="text-white/70 text-xs">Reclaimed timber, recycled glass, low-carbon concrete</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-temperature-low"></i></div><h3 class="font-heading font-bold text-sm mb-2">Passive Climate Control</h3><p class="text-white/70 text-xs">Geothermal heating & natural ventilation year-round</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-droplet"></i></div><h3 class="font-heading font-bold text-sm mb-2">Rainwater Harvesting</h3><p class="text-white/70 text-xs">Collected & filtered for all non-potable water needs</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-solar-panel"></i></div><h3 class="font-heading font-bold text-sm mb-2">Solar Integrated</h3><p class="text-white/70 text-xs">Building-integrated PV panels generate clean energy</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-wifi"></i></div><h3 class="font-heading font-bold text-sm mb-2">Smart Technology</h3><p class="text-white/70 text-xs">Automated lighting, blinds, and climate from a tablet</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-water"></i></div><h3 class="font-heading font-bold text-sm mb-2">Private Pool</h3><p class="text-white/70 text-xs">Heated plunge pool or infinity hot tub in every villa</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-fire"></i></div><h3 class="font-heading font-bold text-sm mb-2">Fire Pit & BBQ</h3><p class="text-white/70 text-xs">Outdoor fire pit and gas grill on every villa deck</p></div>
+          <div class="text-center p-6 border border-sage/20 rounded-xl bg-white/5 backdrop-blur-sm"><div class="text-sage text-3xl mb-4"><i class="fa-solid fa-shield-halved"></i></div><h3 class="font-heading font-bold text-sm mb-2">24/7 Security</h3><p class="text-white/70 text-xs">Discreet monitoring and gated access around the clock</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Included Amenities</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-6">Everything included.</h2>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-8">Villa guests enjoy exclusive access to premium services designed to make every moment effortless. From farm-to-table dining prepared in your kitchen to in-villa spa treatments overlooking the valley.</p>
+            <div class="space-y-5">
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-user-chef"></i></div><div><p class="font-heading font-bold text-forest dark:text-white text-sm">Private Chef Service</p><p class="text-black/50 dark:text-white/50 text-xs">Farm-to-table dining prepared in your villa kitchen</p></div></div>
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-spa"></i></div><div><p class="font-heading font-bold text-forest dark:text-white text-sm">In-Villa Spa Treatments</p><p class="text-black/50 dark:text-white/50 text-xs">Massages, facials, and wellness therapies on your deck</p></div></div>
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-person-hiking"></i></div><div><p class="font-heading font-bold text-forest dark:text-white text-sm">Personal Expedition Guide</p><p class="text-black/50 dark:text-white/50 text-xs">Custom hiking, kayaking, and exploration planning</p></div></div>
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-baby"></i></div><div><p class="font-heading font-bold text-forest dark:text-white text-sm">Family & Kids Services</p><p class="text-black/50 dark:text-white/50 text-xs">Babysitting, kids' activities, and family-friendly dining</p></div></div>
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-offwhite dark:bg-slate-700 text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-van-shuttle"></i></div><div><p class="font-heading font-bold text-forest dark:text-white text-sm">Complimentary Shuttle</p><p class="text-black/50 dark:text-white/50 text-xs">On-demand electric shuttle to all resort areas</p></div></div>
+            </div>
+          </div>
+          <div class="relative h-[400px] md:h-[550px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="images\23.avif" alt="Villa amenities" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Gallery</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Life at the villas.</h2>
+          <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">A visual journey through our villa spaces — from sunrise views to starlit evenings.</p>
+        </div>
+        <div class="columns-2 md:columns-3 gap-4 space-y-4">
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2940&auto=format&fit=crop" alt="Modern villa interior" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Living Room</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2940&auto=format&fit=crop" alt="Villa lounge" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Open Lounge</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2940&auto=format&fit=crop" alt="Villa bedroom" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Master Bedroom</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600573472591-fe3e1c9cfec3?q=80&w=2940&auto=format&fit=crop" alt="Villa pool" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Plunge Pool</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2940&auto=format&fit=crop" alt="Villa bathroom" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Bathroom</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?q=80&w=2940&auto=format&fit=crop" alt="Villa terrace" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Terrace View</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop" alt="Villa exterior" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Exterior</p></div>
+          </div>
+          <div class="relative group overflow-hidden rounded-2xl shadow-lg break-inside-avoid">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2940&auto=format&fit=crop" alt="Villa deck" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-forest/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5"><p class="text-white font-heading font-bold text-sm">Deck & Hot Tub</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Guest Reviews</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">What villa guests say.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-offwhite dark:bg-slate-700 p-8 rounded-2xl shadow-lg">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-6">"The Glass Eco-Villa was beyond anything we expected. Waking up to the mist in the valley through those floor-to-ceiling windows was pure poetry. The private chef dinner was unforgettable."</p>
+            <div class="flex items-center gap-3 border-t border-sage/20 pt-5"><div class="w-10 h-10 rounded-full bg-forest text-sage flex items-center justify-center text-sm font-heading font-bold shrink-0">OM</div><div><p class="text-forest dark:text-white font-heading font-bold text-sm">Olivia & Marcus</p><p class="text-black/40 dark:text-white/40 text-xs">Glass Eco-Villa, 4 nights</p></div></div>
+          </div>
+          <div class="bg-offwhite dark:bg-slate-700 p-8 rounded-2xl shadow-lg">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-6">"The Cliffside Villa's infinity hot tub at sunset was the highlight of our anniversary trip. Absolute perfection. The butler service made us feel like royalty."</p>
+            <div class="flex items-center gap-3 border-t border-sage/20 pt-5"><div class="w-10 h-10 rounded-full bg-forest text-sage flex items-center justify-center text-sm font-heading font-bold shrink-0">TW</div><div><p class="text-forest dark:text-white font-heading font-bold text-sm">The Wilsons</p><p class="text-black/40 dark:text-white/40 text-xs">Cliffside Villa, 3 nights</p></div></div>
+          </div>
+          <div class="bg-offwhite dark:bg-slate-700 p-8 rounded-2xl shadow-lg">
+            <div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-6">"The Garden Villa was perfect for our family of five. The kids spent every moment in the garden while we cooked farm-to-table meals in the kitchen. We didn't want to leave."</p>
+            <div class="flex items-center gap-3 border-t border-sage/20 pt-5"><div class="w-10 h-10 rounded-full bg-forest text-sage flex items-center justify-center text-sm font-heading font-bold shrink-0">TG</div><div><p class="text-forest dark:text-white font-heading font-bold text-sm">The Garcias</p><p class="text-black/40 dark:text-white/40 text-xs">Garden Villa, 5 nights</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Villa Packages</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Curated villa stays.</h2>
+            <p class="text-white/80 text-sm leading-relaxed mb-8">Maximize your villa experience with our all-inclusive packages. Each package is thoughtfully curated to showcase the best of EcoRetreat.</p>
+            <div class="space-y-6">
+              <div class="flex items-center justify-between p-5 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-xl">
+                <div><h3 class="font-heading font-bold text-sage">Romantic Escape</h3><p class="text-white/60 text-xs">2 nights, chef dinner, spa treatment</p></div>
+                <span class="font-heading font-bold text-xl text-sage">$1,599</span>
+              </div>
+              <div class="flex items-center justify-between p-5 bg-white/5 backdrop-blur-sm border border-sage/30 rounded-xl">
+                <div><h3 class="font-heading font-bold text-sage">Family Adventure</h3><p class="text-white/60 text-xs">3 nights, daily activities, kids' program</p></div>
+                <span class="font-heading font-bold text-xl text-sage">$2,899</span>
+              </div>
+              <div class="flex items-center justify-between p-5 bg-white/5 backdrop-blur-sm border border-sage/20 rounded-xl">
+                <div><h3 class="font-heading font-bold text-sage">Ultimate Wellness</h3><p class="text-white/60 text-xs">4 nights, daily spa, yoga, private guide</p></div>
+                <span class="font-heading font-bold text-xl text-sage">$3,999</span>
+              </div>
+            </div>
+          </div>
+          <div class="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2940&auto=format&fit=crop" alt="Luxury villa" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="text-center mt-16">
+          <a href="book.html" class="inline-flex items-center gap-2 text-sage font-bold hover:text-white transition-colors group uppercase tracking-wide text-sm">View All Packages <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="relative overflow-hidden rounded-2xl bg-offwhite dark:bg-slate-700 px-8 py-16 md:p-20 text-center border border-sage/10">
+          <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Your villa awaits.</h2>
+            <p class="text-black/60 dark:text-white/60 font-medium leading-relaxed mb-10">Experience the pinnacle of sustainable luxury. Reserve your eco-villa and discover a new way to travel.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="book.html" class="px-8 py-4 bg-forest text-white font-bold text-sm tracking-widest uppercase hover:bg-sage transition-colors duration-300 shadow-lg">Reserve Your Villa</a>
+              <a href="glamping.html" class="px-8 py-4 border-2 border-forest dark:border-white text-forest dark:text-white font-bold text-sm tracking-widest uppercase hover:bg-forest hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300">Explore Glamping</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
+
+
+

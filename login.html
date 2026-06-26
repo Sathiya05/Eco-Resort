@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Login | EcoRetreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24 flex items-center justify-center px-6 py-16">
+    <div class="w-full max-w-md">
+      <div class="text-center mb-10">
+        <a href="index.html" class="flex items-center justify-center gap-2 mb-8">
+          <div class="w-11 h-11 rounded-full border-2 border-sage flex items-center justify-center text-sage">
+            <i class="fa-solid fa-leaf text-lg"></i>
+          </div>
+          <span class="font-heading font-bold text-2xl tracking-widest uppercase text-forest dark:text-white">Eco<span class="text-sage">Retreat</span></span>
+        </a>
+        <h1 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-3">Welcome back</h1>
+        <p class="text-black/60 dark:text-white/60 text-sm">Sign in to manage your bookings and profile.</p>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 md:p-10 shadow-xl border border-sage/10">
+        <form class="space-y-6" id="loginForm">
+          <div>
+            <label for="email" class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">Email Address</label>
+            <input type="email" id="email" required placeholder="your@email.com" class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm">
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-bold text-forest dark:text-white mb-2 uppercase tracking-wider">Password</label>
+            <input type="password" id="password" required placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" class="w-full px-4 py-3.5 rounded-xl bg-offwhite dark:bg-slate-700 text-forest dark:text-white border border-sage/20 focus:outline-none focus:border-sage transition-all text-sm">
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center gap-2 text-black/60 dark:text-white/60 cursor-pointer">
+              <input type="checkbox" checked class="accent-sage w-4 h-4"> Remember me
+            </label>
+            <a href="#" class="text-sage hover:text-forest dark:hover:text-white font-semibold transition-colors">Forgot password?</a>
+          </div>
+          <button type="submit" class="w-full py-3.5 rounded-xl font-bold tracking-widest uppercase text-sm bg-forest text-white transition-all duration-300 hover:bg-sage hover:text-white shadow-lg">Sign In</button>
+        </form>
+        <div class="mt-8 pt-6 border-t border-sage/10 text-center">
+          <p class="text-black/60 dark:text-white/60 text-sm">Don't have an account? <a href="signup.html" class="text-sage hover:text-forest dark:hover:text-white font-bold transition-colors">Create one</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Welcome back! You have been signed in successfully.');
+    });
+  </script>
+</body>
+</html>
+

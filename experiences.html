@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences | EcoRetreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24">
+
+    <section class="relative h-[75vh] min-h-[550px] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2940&auto=format&fit=crop" alt="Outdoor dining experience" class="absolute inset-0 w-full h-full object-cover z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-forest/80 via-forest/50 to-black/70 z-0"></div>
+      <div class="relative z-10 max-w-[900px] mx-auto px-6 text-center">
+        <span class="inline-block py-1 px-3 border border-sage text-sage text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm bg-forest/30">Curated Experiences</span>
+        <h1 class="text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-6">Adventure <span class="text-sage italic">awaits</span>.</h1>
+        <p class="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed mb-10">Beyond the accommodation lies a world of curated activities designed to connect you with nature, culture, and yourself.</p>
+        <a href="#experiences" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300 shadow-lg inline-block">Explore Activities</a>
+      </div>
+    </section>
+
+    <section id="experiences" class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Signature Experiences</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Beyond the room.</h2>
+          <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">Every experience at EcoRetreat is crafted to deepen your connection with the natural world — guided by local experts who share their passion and knowledge.</p>
+        </div>
+        <div class="space-y-16">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?q=80&w=2940&auto=format&fit=crop" alt="Foraging experience" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center text-xl"><i class="fa-solid fa-utensils"></i></div><span class="text-sage font-bold text-xs uppercase tracking-widest">Culinary</span></div>
+              <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">Foraging & Fire Dining</h3>
+              <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Join our resident chef and foraging expert on a morning walk through the forest to identify wild edibles — mushrooms, herbs, berries, and edible flowers. Bring your harvest back to the open-air kitchen where you'll learn to prepare a multi-course meal over an open flame. The experience culminates in a long-table dinner under the stars, paired with local wines.</p>
+              <div class="flex flex-wrap gap-3 mb-6"><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">3 hours</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">All levels</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Vegetarian options</span></div>
+              <a href="book.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage transition-colors group uppercase tracking-wide text-sm">Book This Experience <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl lg:order-2">
+              <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2940&auto=format&fit=crop" alt="Spa treatment in forest" class="w-full h-full object-cover">
+            </div>
+            <div class="lg:order-1">
+              <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center text-xl"><i class="fa-solid fa-spa"></i></div><span class="text-sage font-bold text-xs uppercase tracking-widest">Wellness</span></div>
+              <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">Forest Bathing Spa</h3>
+              <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Inspired by the Japanese practice of shinrin-yoku, our forest bathing experience combines guided meditation with therapeutic spa treatments in an open-air pavilion surrounded by ancient trees. Begin with a mindfulness walk, followed by a wild-harvested botanical massage or facial. The experience ends with a cup of locally foraged tea as you absorb the sounds of the forest.</p>
+              <div class="flex flex-wrap gap-3 mb-6"><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">2 hours</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Private session</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Organic products</span></div>
+              <a href="book.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage transition-colors group uppercase tracking-wide text-sm">Book This Experience <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop" alt="Hiking expedition" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center text-xl"><i class="fa-solid fa-compass"></i></div><span class="text-sage font-bold text-xs uppercase tracking-widest">Adventure</span></div>
+              <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">Guided Expeditions</h3>
+              <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Explore the pristine wilderness surrounding EcoRetreat with our expert local guides. Choose from sunrise summit hikes, gentle waterfall walks, full-day alpine treks, or riverside cycling routes. Our guides share deep knowledge of local ecology, geology, and indigenous history. Picnic lunches featuring local ingredients are included on full-day expeditions.</p>
+              <div class="flex flex-wrap gap-3 mb-6"><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Half / Full day</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">All fitness levels</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Gear provided</span></div>
+              <a href="book.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage transition-colors group uppercase tracking-wide text-sm">Book This Experience <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-full bg-white/10 text-sage flex items-center justify-center text-xl"><i class="fa-solid fa-sun"></i></div><span class="text-sage font-bold text-xs uppercase tracking-widest">Wellness</span></div>
+            <h3 class="text-3xl md:text-4xl font-heading font-bold mb-6">Yoga & Meditation</h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">Start your day with sunrise yoga on our ridge-top platform overlooking the valley. Our certified instructors guide sessions suitable for all levels — from gentle Hatha to dynamic Vinyasa. Evening meditation sessions take place in the forest under the canopy, accompanied by the sounds of nature. Private sessions are available.</p>
+            <div class="flex flex-wrap gap-3 mb-6"><span class="px-3 py-1 bg-white/10 text-sage text-xs font-bold rounded">Daily classes</span><span class="px-3 py-1 bg-white/10 text-sage text-xs font-bold rounded">All levels</span><span class="px-3 py-1 bg-white/10 text-sage text-xs font-bold rounded">Equipment provided</span></div>
+            <a href="book.html" class="inline-flex items-center gap-2 text-sage font-bold hover:text-white transition-colors group uppercase tracking-wide text-sm">Book a Session <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+          </div>
+          <div class="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1602192509154-0b900ee1f851?q=80&w=2940&auto=format&fit=crop" alt="Yoga on mountain ridge" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1532978379174-32e16d8e38be?q=80&w=2940&auto=format&fit=crop" alt="Stargazing" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center text-xl"><i class="fa-solid fa-star"></i></div><span class="text-sage font-bold text-xs uppercase tracking-widest">Night</span></div>
+            <h3 class="text-3xl md:text-4xl font-heading font-bold text-forest dark:text-white mb-4">Stargazing Experience</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">With zero light pollution and some of the clearest skies in the region, EcoRetreat is a paradise for stargazers. Our guided astronomy sessions use a high-powered telescope to explore planets, constellations, and deep-sky objects. Cozy blankets, hot chocolate, and a fire pit keep you warm as you journey through the cosmos.</p>
+            <div class="flex flex-wrap gap-3 mb-6"><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">1.5 hours</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Nightly (weather permitting)</span><span class="px-3 py-1 bg-sage/10 text-sage text-xs font-bold rounded">Family friendly</span></div>
+            <a href="book.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage transition-colors group uppercase tracking-wide text-sm">Book This Experience <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Seasonal Activities</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">Something for every season.</h2>
+          <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">Our activity calendar changes with the seasons, offering unique experiences throughout the year.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-white dark:bg-slate-700 p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl text-sage mb-4"><i class="fa-solid fa-seedling"></i></div>
+            <h3 class="font-heading font-bold text-forest dark:text-white mb-3">Spring</h3>
+            <ul class="text-sm text-black/60 dark:text-white/60 space-y-2"><li>Wildflower hikes</li><li>Foraging workshops</li><li>Bird watching tours</li><li>Farm planting days</li></ul>
+          </div>
+          <div class="bg-white dark:bg-slate-700 p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl text-sage mb-4"><i class="fa-solid fa-sun"></i></div>
+            <h3 class="font-heading font-bold text-forest dark:text-white mb-3">Summer</h3>
+            <ul class="text-sm text-black/60 dark:text-white/60 space-y-2"><li>Sunrise kayaking</li><li>Outdoor yoga series</li><li>Farm-to-table dinners</li><li>Stargazing nights</li></ul>
+          </div>
+          <div class="bg-white dark:bg-slate-700 p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl text-sage mb-4"><i class="fa-solid fa-leaf"></i></div>
+            <h3 class="font-heading font-bold text-forest dark:text-white mb-3">Autumn</h3>
+            <ul class="text-sm text-black/60 dark:text-white/60 space-y-2"><li>Foliage photography</li><li>Mushroom foraging</li><li>Harvest feasts</li><li>Forest meditation</li></ul>
+          </div>
+          <div class="bg-white dark:bg-slate-700 p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl text-sage mb-4"><i class="fa-solid fa-snowflake"></i></div>
+            <h3 class="font-heading font-bold text-forest dark:text-white mb-3">Winter</h3>
+            <ul class="text-sm text-black/60 dark:text-white/60 space-y-2"><li>Snowshoe treks</li><li>Hot springs soaks</li><li>Fireplace storytelling</li><li>Photography workshops</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Workshops</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-6">Learn something new.</h2>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed mb-6">Immerse yourself in a creative or educational workshop led by local artisans and experts. From natural dye making and pottery to wildlife photography and herbal medicine crafting — our workshops offer hands-on learning in stunning settings.</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-palette text-sage"></i>Natural dye workshop</div>
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-camera text-sage"></i>Photography walks</div>
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-mortar-pestle text-sage"></i>Herbal medicine</div>
+              <div class="flex items-center gap-3 text-sm text-black/70 dark:text-white/70"><i class="fa-solid fa-hand-sparkles text-sage"></i>Pottery classes</div>
+            </div>
+            <a href="book.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage transition-colors group uppercase tracking-wide text-sm">View Workshop Schedule <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+          </div>
+          <div class="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2940&auto=format&fit=crop" alt="Art workshop in nature" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Packages</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Curated experience packages.</h2>
+          <p class="text-white/80 font-medium leading-relaxed">Bundle your favorite activities and save with our carefully crafted experience packages.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white/5 backdrop-blur-sm border border-sage/20 p-8 rounded-2xl">
+            <h3 class="text-xl font-heading font-bold text-sage mb-2">The Romantic</h3>
+            <p class="text-3xl font-heading font-bold mb-4">$299<span class="text-white/50 text-sm font-normal"> / couple</span></p>
+            <ul class="space-y-3 text-sm text-white/70 mb-8"><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Stargazer Dome night</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Private chef dinner</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Couples spa treatment</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Sunset champagne</li></ul>
+            <a href="book.html" class="block w-full py-3 text-center bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300">Book Package</a>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-sage/30 p-8 rounded-2xl scale-105 shadow-2xl">
+            <div class="text-sage text-xs font-bold uppercase tracking-widest mb-2">Most Popular</div>
+            <h3 class="text-xl font-heading font-bold text-sage mb-2">The Adventurer</h3>
+            <p class="text-3xl font-heading font-bold mb-4">$449<span class="text-white/50 text-sm font-normal"> / person</span></p>
+            <ul class="space-y-3 text-sm text-white/70 mb-8"><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>2 nights Safari Canopy</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Full-day guided hike</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Foraging dinner</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Yoga & meditation</li></ul>
+            <a href="book.html" class="block w-full py-3 text-center bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300">Book Package</a>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-sage/20 p-8 rounded-2xl">
+            <h3 class="text-xl font-heading font-bold text-sage mb-2">The Ultimate</h3>
+            <p class="text-3xl font-heading font-bold mb-4">$899<span class="text-white/50 text-sm font-normal"> / person</span></p>
+            <ul class="space-y-3 text-sm text-white/70 mb-8"><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>3 nights Eco-Villa</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>All activities included</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Daily spa treatment</li><li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i>Private guide</li></ul>
+            <a href="book.html" class="block w-full py-3 text-center bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300">Book Package</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Testimonials</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-12">What guests say about our experiences.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-offwhite dark:bg-slate-700 p-8 rounded-xl shadow-lg"><div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-4">"The foraging dinner was the highlight of our trip. Our chef was incredible and the food was out of this world."</p><p class="text-forest dark:text-white font-heading font-bold text-sm">— Tomás & Nina</p></div>
+          <div class="bg-offwhite dark:bg-slate-700 p-8 rounded-xl shadow-lg"><div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-4">"The forest bathing spa was pure bliss. I've never felt so connected to nature. The therapist was incredibly skilled."</p><p class="text-forest dark:text-white font-heading font-bold text-sm">— Amara K.</p></div>
+          <div class="bg-offwhite dark:bg-slate-700 p-8 rounded-xl shadow-lg"><div class="flex gap-1 text-sage mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-black/60 dark:text-white/60 text-sm italic leading-relaxed mb-4">"Our guide took us to a hidden waterfall we never would have found on our own. The picnic lunch there was unforgettable."</p><p class="text-forest dark:text-white font-heading font-bold text-sm">— The Parkers</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10 text-center">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Your adventure starts here.</h2>
+        <p class="text-white/80 font-medium leading-relaxed max-w-2xl mx-auto mb-10">Browse our full activity calendar and build your perfect EcoRetreat itinerary.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="book.html" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300 shadow-lg">Book Activities</a>
+          <a href="contact.html" class="px-8 py-4 border-2 border-white text-white font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-forest transition-colors duration-300">Ask a Guide</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
+
+
+

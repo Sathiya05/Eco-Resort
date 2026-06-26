@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | EcoRetreat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#2F5D50',
+                        sage: '#8FAF8A',
+                        black: '#000000',
+                        white: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles and transitions */
+        body { -webkit-font-smoothing: antialiased; }
+        
+        * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* RTL support */
+        html[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+        html[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
+        html[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+        html[dir="rtl"] .pl-4 { padding-left: 0 !important; padding-right: 1rem !important; }
+        html[dir="rtl"] .border-r { border-right: none !important; border-left: 1px solid rgba(148, 163, 184, 0.1) !important; }
+
+        #sidebar { transition: transform 0.3s ease-in-out; }
+
+        /* Page Content Toggle Classes */
+        .page-content { display: none; }
+        .page-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-black dark:text-slate-200 font-sans overflow-x-hidden">
+
+    <div id="overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300"></div>
+
+    <div class="flex h-screen overflow-hidden relative">
+
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 flex-shrink-0 bg-white dark:bg-slate-900 shadow-2xl lg:shadow-none flex flex-col h-full border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+
+            <div class="px-6 pt-8 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
+                <a href="index.html" class="relative z-[60] flex items-center gap-3 group shrink-0">
+                    <div class="w-11 h-11 rounded-full border-2 border-sage flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-black transition-colors shadow-lg shadow-sage/20">
+                        <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight text-forest dark:text-white uppercase transition-colors">
+                            Eco<span class="text-sage">Retreat</span>
+                        </span>
+                        <span class="text-[9px] tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 font-bold leading-none mt-1">
+                            Luxury Glamping
+                        </span>
+                    </div>
+                </a>
+                <button id="closeSidebarBtn" class="lg:hidden w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="lg:hidden px-6 py-4 flex items-center gap-3 border-b border-slate-100 dark:border-slate-800">
+                <button id="mobileRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-sage font-bold text-xs">
+                    RTL
+                </button>
+                <button id="mobileDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-sage">
+                    <i id="mobileThemeIcon" class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <nav id="sidebar-nav" class="mt-6 flex-1 px-4 space-y-2 overflow-y-auto no-scrollbar">
+                
+                <a href="javascript:void(0)" onclick="showPage('dashboard', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-bold rounded-xl bg-sage text-black shadow-[0_0_20px_rgba(143,175,138,0.2)] transition-all">
+                    <i class="fas fa-chart-line w-6 text-lg"></i>
+                    <span class="ml-3">Overview</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('bookings', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-calendar-alt w-6 text-lg"></i>
+                    <span class="ml-3">Bookings</span>
+                    <span class="ml-auto text-[10px] uppercase tracking-widest px-2 py-1 rounded-md bg-sage/20 text-forest dark:text-sage font-bold">5 New</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('guests', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-users w-6 text-lg"></i>
+                    <span class="ml-3">Guest List</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('experiences', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-spa w-6 text-lg"></i>
+                    <span class="ml-3">Manage Experiences</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('settings', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-sliders w-6 text-lg"></i>
+                    <span class="ml-3">Resort Settings</span>
+                </a>
+
+                <div class="border-t border-slate-200 dark:border-slate-800 my-6"></div>
+
+                <a href="login.html" class="flex items-center px-4 py-3.5 text-sm font-medium text-red-500 rounded-xl hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors">
+                    <i class="fas fa-sign-out-alt w-6"></i>
+                    <span class="ml-3">Admin Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 flex flex-col overflow-y-auto w-full relative">
+
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-sage/10 rounded-full blur-[150px] pointer-events-none z-0 hidden lg:block"></div>
+
+            <header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
+                <div>
+                    <h1 id="mainTitle" class="text-xl md:text-2xl font-heading font-black text-forest dark:text-white">Resort Overview</h1>
+                </div>
+
+                <div class="flex items-center gap-3 md:gap-5">
+                     <div class="flex items-center gap-3 px-2 py-1.5 md:px-3 bg-slate-100 dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-sage transition-colors">
+                         <div class="w-8 h-8 rounded-full bg-forest dark:bg-white text-white dark:text-forest flex items-center justify-center font-bold text-sm">
+                             ER
+                         </div>
+                         <div class="hidden sm:block text-left pr-2">
+                             <p class="text-xs font-bold text-forest dark:text-white leading-tight">Admin User</p>
+                             <p class="text-[9px] text-sage font-bold uppercase tracking-widest leading-tight">Master Access</p>
+                         </div>
+                     </div>
+ 
+                     <div class="hidden lg:flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-3 md:pl-5">
+                         <button id="desktopRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-sage hover:bg-slate-800 transition-all shadow-sm">
+                             <span class="text-[10px] font-black uppercase">RTL</span>
+                         </button>
+                         <button id="desktopDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-sage hover:bg-slate-800 transition-all shadow-sm">
+                             <i id="desktopThemeIcon" class="fas fa-moon text-sm"></i>
+                         </button>
+                     </div>
+
+                     <button id="hamburgerBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-forest dark:bg-white text-white dark:text-black shadow-md">
+                         <i class="fas fa-bars text-lg"></i>
+                     </button>
+                 </div>
+            </header>
+
+            <div class="p-6 lg:p-10 space-y-8 max-w-[1440px] mx-auto w-full relative z-10">
+
+                <!-- Dashboard View -->
+                <div id="page-dashboard" class="page-content active space-y-8">
+                    
+                    <div class="bg-forest rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="absolute top-0 right-0 w-80 h-80 bg-sage/20 rounded-full blur-[100px] pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <h2 class="text-3xl lg:text-4xl font-heading font-black text-white mb-2">Welcome, Management.</h2>
+                            <p class="text-white/80 font-medium max-w-xl leading-relaxed">
+                                You currently have <strong class="text-sage">5 new bookings</strong> to review and <strong class="text-sage">3 guest arrivals</strong> today. Occupancy is currently at 85%.
+                            </p>
+                        </div>
+                        <div class="relative z-10 shrink-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 flex items-center gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-sage flex items-center justify-center text-forest text-xl shadow-lg shrink-0">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-white/70 font-bold mb-1">Status</p>
+                                <p class="font-heading font-bold text-white text-lg leading-none">Accepting Bookings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative group overflow-hidden">
+                            <div class="flex justify-between items-start mb-4">
+                                <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Monthly Revenue</p>
+                                <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-forest dark:text-white flex items-center justify-center"><i class="fas fa-dollar-sign"></i></div>
+                            </div>
+                            <h3 class="text-3xl font-heading font-black text-forest dark:text-white mb-2">$84,500</h3>
+                            <div class="flex items-center gap-2 text-xs font-bold text-green-500">
+                                <i class="fas fa-arrow-up"></i> <span>+12% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative group overflow-hidden">
+                            <div class="flex justify-between items-start mb-4">
+                                <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Active Guests</p>
+                                <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-forest dark:text-white flex items-center justify-center"><i class="fas fa-users"></i></div>
+                            </div>
+                            <h3 class="text-4xl font-heading font-black text-forest dark:text-white mb-2">42</h3>
+                            <div class="flex items-center gap-2 text-xs font-bold text-slate-500">
+                                <i class="fas fa-suitcase-rolling"></i> <span>3 arriving today</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-sage rounded-3xl p-6 shadow-lg relative group overflow-hidden text-black">
+                            <div class="absolute -right-4 -bottom-4 w-32 h-32 bg-white/20 rounded-full group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+                            <div class="flex justify-between items-start mb-4 relative z-10">
+                                <p class="text-[10px] uppercase tracking-widest font-bold">Pending Bookings</p>
+                                <div class="w-10 h-10 rounded-xl bg-black/10 flex items-center justify-center backdrop-blur-sm"><i class="fas fa-calendar-plus"></i></div>
+                            </div>
+                            <h3 class="text-4xl font-heading font-black mb-2 relative z-10">5</h3>
+                            <div class="flex items-center gap-2 text-xs font-bold relative z-10">
+                                <i class="fas fa-clock"></i> <span>Require approval</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative group overflow-hidden">
+                            <div class="flex justify-between items-start mb-4">
+                                <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Occupancy Rate</p>
+                                <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-forest dark:text-white flex items-center justify-center"><i class="fas fa-bed"></i></div>
+                            </div>
+                            <h3 class="text-4xl font-heading font-black text-forest dark:text-white mb-2">85%</h3>
+                            <div class="flex items-center gap-2 text-xs font-bold text-slate-500">
+                                <i class="fas fa-chart-pie"></i> <span>Current Month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+                        
+                        <div class="xl:col-span-2 bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="flex items-center justify-between mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">
+                                <h2 class="text-xl font-heading font-bold text-forest dark:text-white">Revenue by Accommodation</h2>
+                                <button class="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-sage transition-colors">View Report</button>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="font-bold text-forest dark:text-white">Glass Eco-Villas</span>
+                                        <span class="text-slate-500 font-bold">55% of Sales</span>
+                                    </div>
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
+                                        <div class="bg-sage h-3 rounded-full" style="width: 55%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="font-bold text-forest dark:text-white">Safari Canopies</span>
+                                        <span class="text-slate-500 font-bold">35% of Sales</span>
+                                    </div>
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
+                                        <div class="bg-forest/60 dark:bg-forest h-3 rounded-full" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="font-bold text-forest dark:text-white">Experiences & Dining</span>
+                                        <span class="text-slate-500 font-bold">10% of Sales</span>
+                                    </div>
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
+                                        <div class="bg-slate-300 dark:bg-slate-600 h-3 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-forest rounded-[2rem] p-8 shadow-xl relative overflow-hidden text-white">
+                            <h2 class="text-xl font-heading font-bold mb-6 border-b border-white/20 pb-4">Quick Admin Actions</h2>
+                            <div class="space-y-3">
+                                <button onclick="showPage('bookings', document.querySelectorAll('.nav-link')[1])" class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-xl text-left flex items-center justify-between hover:bg-sage hover:text-black hover:border-sage transition-colors group">
+                                    <span class="font-bold text-sm tracking-wide"><i class="fas fa-check-circle w-6"></i> Approve Bookings</span>
+                                    <i class="fas fa-chevron-right text-xs opacity-50 group-hover:opacity-100"></i>
+                                </button>
+                                <button onclick="showPage('guests', document.querySelectorAll('.nav-link')[2])" class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-xl text-left flex items-center justify-between hover:bg-sage hover:text-black hover:border-sage transition-colors group">
+                                    <span class="font-bold text-sm tracking-wide"><i class="fas fa-envelope w-6"></i> Message Guests</span>
+                                    <i class="fas fa-chevron-right text-xs opacity-50 group-hover:opacity-100"></i>
+                                </button>
+                                <button class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-xl text-left flex items-center justify-between hover:bg-sage hover:text-black hover:border-sage transition-colors group">
+                                    <span class="font-bold text-sm tracking-wide"><i class="fas fa-plus w-6"></i> Block Dates</span>
+                                    <i class="fas fa-chevron-right text-xs opacity-50 group-hover:opacity-100"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Management View -->
+                <div id="page-bookings" class="page-content space-y-6">
+                    <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <h2 class="text-2xl font-heading font-bold text-forest dark:text-white">Booking Management</h2>
+                            <p class="text-sm text-slate-500 font-medium mt-1">Review, approve, and manage guest reservations.</p>
+                        </div>
+                        <div class="text-xs font-bold bg-sage/20 text-forest dark:text-sage px-4 py-2 rounded-xl border border-sage/30">
+                            5 Pending Approvals
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto no-scrollbar">
+                            <table class="w-full text-left text-sm">
+                                <thead class="bg-slate-50 dark:bg-slate-950/50 text-slate-500 text-[10px] uppercase tracking-widest border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th class="px-6 py-5 font-bold">Guest Info</th>
+                                        <th class="px-6 py-5 font-bold">Accommodation</th>
+                                        <th class="px-6 py-5 font-bold">Dates</th>
+                                        <th class="px-6 py-5 font-bold">Status</th>
+                                        <th class="px-6 py-5 font-bold text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800/50">
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <p class="font-bold text-forest dark:text-white text-base">John Doe</p>
+                                            <p class="text-xs text-slate-500">john@example.com</p>
+                                        </td>
+                                        <td class="px-6 py-4 font-medium">Safari Canopy</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">Dec 01 - Dec 05, 2026</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-3 py-1 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-[10px] font-bold uppercase rounded-md border border-yellow-200 dark:border-yellow-800/50">Pending</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right space-x-2">
+                                            <button class="px-3 py-1 bg-sage text-black font-bold text-xs uppercase rounded hover:bg-forest hover:text-white transition-colors">Approve</button>
+                                            <button class="px-3 py-1 bg-red-100 text-red-600 font-bold text-xs uppercase rounded hover:bg-red-200 transition-colors">Decline</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <p class="font-bold text-forest dark:text-white text-base">Elena Rivera</p>
+                                            <p class="text-xs text-slate-500">elena@example.com</p>
+                                        </td>
+                                        <td class="px-6 py-4 font-medium">Glass Eco-Villa</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">Nov 12 - Nov 15, 2026</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-3 py-1 bg-sage/20 text-forest dark:text-sage text-[10px] font-bold uppercase rounded-md border border-sage/30">Confirmed</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guest List View -->
+                <div id="page-guests" class="page-content space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                        <div class="relative w-full sm:w-80">
+                            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" placeholder="Search guests..." class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:outline-none focus:border-sage text-sm">
+                        </div>
+                        <button class="w-full sm:w-auto px-6 py-3 bg-forest dark:bg-white text-white dark:text-black rounded-xl font-bold text-xs uppercase tracking-widest shadow-md hover:bg-sage dark:hover:bg-sage transition-colors">
+                            Export CSV
+                        </button>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto no-scrollbar hidden sm:block">
+                            <table class="w-full text-left text-sm">
+                                <thead class="bg-slate-50 dark:bg-slate-950/50 text-slate-500 text-[10px] uppercase tracking-widest border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th class="px-6 py-5 font-bold">Guest Info</th>
+                                        <th class="px-6 py-5 font-bold">Member Level</th>
+                                        <th class="px-6 py-5 font-bold">Total Stays</th>
+                                        <th class="px-6 py-5 font-bold">Eco-Points</th>
+                                        <th class="px-6 py-5 font-bold text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800/50">
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-4">
+                                                <img src="images/pro g1.avif" class="w-10 h-10 rounded-full object-cover">
+                                                <div>
+                                                    <p class="font-bold text-forest dark:text-white text-base">Elena Rivera</p>
+                                                    <p class="text-xs text-slate-500">elena@example.com</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4"><span class="px-3 py-1 rounded-md bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold">Gold</span></td>
+                                        <td class="px-6 py-4 font-medium">5</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">2,450</td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"><i class="fas fa-user-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-4">
+                                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full object-cover">
+                                                <div>
+                                                    <p class="font-bold text-forest dark:text-white text-base">Marcus Chen</p>
+                                                    <p class="text-xs text-slate-500">marcus@example.com</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4"><span class="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">Silver</span></td>
+                                        <td class="px-6 py-4 font-medium">3</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">1,200</td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"><i class="fas fa-user-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-4">
+                                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full object-cover">
+                                                <div>
+                                                    <p class="font-bold text-forest dark:text-white text-base">Sarah Kim</p>
+                                                    <p class="text-xs text-slate-500">sarah@example.com</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4"><span class="px-3 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold">Platinum</span></td>
+                                        <td class="px-6 py-4 font-medium">12</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">8,900</td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"><i class="fas fa-user-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="sm:hidden divide-y divide-slate-100 dark:divide-slate-800">
+                            <div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="images/pro g1.avif" class="w-12 h-12 rounded-full object-cover">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-bold text-forest dark:text-white text-base truncate">Elena Rivera</p>
+                                        <p class="text-xs text-slate-500 truncate">elena@example.com</p>
+                                    </div>
+                                    <button class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage transition-colors flex items-center justify-center shrink-0"><i class="fas fa-user-edit text-sm"></i></button>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3 text-center">
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Level</p>
+                                        <span class="px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold">Gold</span>
+                                    </div>
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Stays</p>
+                                        <p class="font-bold text-forest dark:text-white">5</p>
+                                    </div>
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Points</p>
+                                        <p class="font-bold text-sage">2,450</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="w-12 h-12 rounded-full object-cover">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-bold text-forest dark:text-white text-base truncate">Marcus Chen</p>
+                                        <p class="text-xs text-slate-500 truncate">marcus@example.com</p>
+                                    </div>
+                                    <button class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage transition-colors flex items-center justify-center shrink-0"><i class="fas fa-user-edit text-sm"></i></button>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3 text-center">
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Level</p>
+                                        <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">Silver</span>
+                                    </div>
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Stays</p>
+                                        <p class="font-bold text-forest dark:text-white">3</p>
+                                    </div>
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Points</p>
+                                        <p class="font-bold text-sage">1,200</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" class="w-12 h-12 rounded-full object-cover">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-bold text-forest dark:text-white text-base truncate">Sarah Kim</p>
+                                        <p class="text-xs text-slate-500 truncate">sarah@example.com</p>
+                                    </div>
+                                    <button class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage transition-colors flex items-center justify-center shrink-0"><i class="fas fa-user-edit text-sm"></i></button>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3 text-center">
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Level</p>
+                                        <span class="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold">Platinum</span>
+                                    </div>
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Stays</p>
+                                        <p class="font-bold text-forest dark:text-white">12</p>
+                                    </div>
+                                    <div class="bg-slate-50 dark:bg-slate-950/50 rounded-xl py-2.5">
+                                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Points</p>
+                                        <p class="font-bold text-sage">8,900</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiences Management View -->
+                <div id="page-experiences" class="page-content space-y-6">
+                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-heading font-bold text-forest dark:text-white">Manage Experiences</h2>
+                        </div>
+                        <button class="w-full sm:w-auto px-6 py-2.5 bg-sage text-black rounded-xl font-bold text-xs uppercase tracking-widest shadow-md hover:bg-forest hover:text-white transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i> Add Experience
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+                        
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\spa.avif" alt="Spa" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 bg-forest text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10">
+                                    Active
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Forest Bathing Spa</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5">Price: $150 / person</p>
+                                </div>
+                                <div class="flex gap-2 mt-auto pt-1">
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold rounded-xl hover:bg-sage transition-colors">Edit</button>
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold text-red-500 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">Disable</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\dining.avif" alt="Dining" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 bg-sage text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10">
+                                    Active
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Foraging & Fire Dining</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5">Price: $200 / person</p>
+                                </div>
+                                <div class="flex gap-2 mt-auto pt-1">
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold rounded-xl hover:bg-sage transition-colors">Edit</button>
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold text-red-500 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">Disable</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\guide.avif" alt="Expedition" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Guided Expeditions</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5">Price: $85 / person</p>
+                                </div>
+                                <div class="flex gap-2 mt-auto pt-1">
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold rounded-xl hover:bg-sage transition-colors">Edit</button>
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold text-red-500 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">Disable</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\yoga.avif" alt="Yoga" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10">
+                                    Draft
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Yoga & Meditation</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5">Price: $60 / person</p>
+                                </div>
+                                <div class="flex gap-2 mt-auto pt-1">
+                                    <button class="flex-1 px-3 py-2 bg-forest text-white text-xs font-bold rounded-xl hover:bg-sage hover:text-black transition-colors">Publish</button>
+                                    <button class="flex-1 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-xs font-bold text-red-500 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">Disable</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Resort Settings View -->
+                <div id="page-settings" class="page-content">
+                    <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 max-w-3xl mx-auto overflow-hidden shadow-sm">
+                        
+                        <div class="p-8 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+                            <h2 class="text-2xl font-heading font-black text-forest dark:text-white mb-1">Resort Settings</h2>
+                            <p class="text-sm text-slate-500 font-medium">Manage accommodation availability and site-wide configurations.</p>
+                        </div>
+
+                        <div class="p-8 space-y-8">
+                            
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 border-b border-slate-100 dark:border-slate-800 pb-2">Business Operations</h3>
+                                <div class="space-y-4">
+                                    <label class="flex items-center justify-between cursor-pointer p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors">
+                                        <div>
+                                            <span class="block text-sm font-bold text-forest dark:text-white mb-1">Accepting New Bookings</span>
+                                            <span class="block text-xs text-slate-500 font-medium">Toggles the ability for guests to book via the main site.</span>
+                                        </div>
+                                        <input type="checkbox" class="w-5 h-5 rounded border-slate-300 text-sage focus:ring-sage" checked>
+                                    </label>
+                                    
+                                    <label class="flex items-center justify-between cursor-pointer p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors">
+                                        <div>
+                                            <span class="block text-sm font-bold text-forest dark:text-white mb-1">Auto-Approve Returning Guests</span>
+                                            <span class="block text-xs text-slate-500 font-medium">Skip manual review for guests with previous stays.</span>
+                                        </div>
+                                        <input type="checkbox" class="w-5 h-5 rounded border-slate-300 text-sage focus:ring-sage">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="pt-8 flex justify-end gap-4 border-t border-slate-200 dark:border-slate-800">
+                                <button class="px-8 py-4 rounded-xl bg-forest dark:bg-white text-white dark:text-black font-bold text-sm tracking-wide shadow-lg hover:bg-sage hover:text-black dark:hover:bg-sage transition-all">Save Configuration</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        /* ===============================
+           TAB SWITCHING LOGIC
+        ================================ */
+        function showPage(pageId, element) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            // Update Header Title
+            const titles = {
+                'dashboard': 'Resort Overview',
+                'bookings': 'Booking Management',
+                'guests': 'Guest List',
+                'experiences': 'Manage Experiences',
+                'settings': 'Resort Settings'
+            };
+            document.getElementById('mainTitle').innerText = titles[pageId];
+
+            // Reset Nav Styling
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-sage', 'text-black', 'shadow-[0_0_20px_rgba(143,175,138,0.2)]');
+                link.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
+                link.querySelector('span:first-of-type').classList.remove('font-bold');
+                link.querySelector('span:first-of-type').classList.add('font-medium');
+            });
+
+            // Set Active Nav Styling
+            if(element) {
+                element.classList.remove('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
+                element.classList.add('bg-sage', 'text-black', 'shadow-[0_0_20px_rgba(143,175,138,0.2)]');
+                element.querySelector('span:first-of-type').classList.remove('font-medium');
+                element.querySelector('span:first-of-type').classList.add('font-bold');
+            }
+
+            // Close sidebar on mobile after clicking
+            if (window.innerWidth < 1024) closeSidebar();
+        }
+
+        /* ===============================
+           SIDEBAR, THEME & RTL LOGIC
+        ================================ */
+        const htmlElement = document.documentElement;
+        const desktopThemeBtn = document.getElementById("desktopDarkToggle");
+        const desktopThemeIcon = document.getElementById("desktopThemeIcon");
+        const desktopRtlBtn = document.getElementById("desktopRtlToggle");
+        
+        const mobileThemeBtn = document.getElementById("mobileDarkToggle");
+        const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+        const mobileRtlBtn = document.getElementById("mobileRtlToggle");
+        
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+        // Theme initialization
+        function applyTheme() {
+            let theme = localStorage.getItem('ecoretreat-dark') === 'true';
+            if (theme) {
+                htmlElement.classList.add('dark');
+                if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-sun text-sage';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun text-sage';
+            } else {
+                htmlElement.classList.remove('dark');
+                if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-moon';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.setItem('ecoretreat-dark', isDark);
+            applyTheme();
+        }
+
+        if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        // RTL Logic
+        function toggleRTL() {
+            const currentDir = htmlElement.getAttribute("dir");
+            const newDir = currentDir === "rtl" ? "ltr" : "rtl";
+            htmlElement.setAttribute("dir", newDir);
+            localStorage.setItem("ecoretreat-rtl", newDir);
+        }
+
+        if (desktopRtlBtn) desktopRtlBtn.addEventListener('click', toggleRTL);
+        if (mobileRtlBtn) mobileRtlBtn.addEventListener('click', toggleRTL);
+
+        // Sidebar Logic for Mobile
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.remove('opacity-100');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            document.body.style.overflow = '';
+        }
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+
+        // Init page load
+        applyTheme();
+        const savedRTL = localStorage.getItem("ecoretreat-rtl");
+        if (savedRTL) htmlElement.setAttribute("dir", savedRTL);
+    </script>
+</body>
+</html>

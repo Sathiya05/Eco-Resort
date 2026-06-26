@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Portal | EcoRetreat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#2F5D50',
+                        sage: '#8FAF8A',
+                        black: '#000000',
+                        white: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles and transitions */
+        body { -webkit-font-smoothing: antialiased; }
+        
+        * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* RTL support */
+        html[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+        html[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
+        html[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+        html[dir="rtl"] .pl-4 { padding-left: 0 !important; padding-right: 1rem !important; }
+        html[dir="rtl"] .border-r { border-right: none !important; border-left: 1px solid rgba(148, 163, 184, 0.1) !important; }
+
+        #sidebar { transition: transform 0.3s ease-in-out; }
+
+        /* Page Content Toggle Classes */
+        .page-content { display: none; }
+        .page-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-black dark:text-slate-200 font-sans overflow-x-hidden">
+
+    <div id="overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300"></div>
+
+    <div class="flex h-screen overflow-hidden relative">
+
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 flex-shrink-0 bg-white dark:bg-slate-900 shadow-2xl lg:shadow-none flex flex-col h-full border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+
+            <div class="px-6 pt-8 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
+                <a href="index.html" class="relative z-[60] flex items-center gap-3 group shrink-0">
+                    <div class="w-11 h-11 rounded-full border-2 border-sage flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-black transition-colors shadow-lg shadow-sage/20">
+                        <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight text-forest dark:text-white uppercase transition-colors">
+                            Eco<span class="text-sage">Retreat</span>
+                        </span>
+                        <span class="text-[9px] tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 font-bold leading-none mt-1">
+                            Luxury Glamping
+                        </span>
+                    </div>
+                </a>
+                <button id="closeSidebarBtn" class="lg:hidden w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-sage">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="lg:hidden px-6 py-4 flex items-center gap-3 border-b border-slate-100 dark:border-slate-800">
+                <button id="mobileRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-sage font-bold text-xs">
+                    RTL
+                </button>
+                <button id="mobileDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-sage">
+                    <i id="mobileThemeIcon" class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <nav id="sidebar-nav" class="mt-6 flex-1 px-4 space-y-2 overflow-y-auto no-scrollbar">
+                
+                <a href="javascript:void(0)" onclick="showPage('dashboard', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-bold rounded-xl bg-sage text-black shadow-[0_0_20px_rgba(143,175,138,0.2)] transition-all">
+                    <i class="fas fa-compass w-6 text-lg"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('bookings', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-calendar-alt w-6 text-lg"></i>
+                    <span class="ml-3">My Bookings</span>
+                    <span class="ml-auto text-[10px] uppercase tracking-widest px-2 py-1 rounded-md bg-sage/20 text-forest dark:text-sage font-bold">1 Upcoming</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('experiences', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-spa w-6 text-lg"></i>
+                    <span class="ml-3">Experiences</span>
+                </a>
+                
+                <a href="javascript:void(0)" onclick="showPage('account', this)" class="nav-link flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-forest dark:hover:text-white transition-all">
+                    <i class="fas fa-cog w-6 text-lg"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+
+                <div class="border-t border-slate-200 dark:border-slate-800 my-6"></div>
+
+                <a href="login.html" class="flex items-center px-4 py-3.5 text-sm font-medium text-red-500 rounded-xl hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors">
+                    <i class="fas fa-sign-out-alt w-6"></i>
+                    <span class="ml-3">Sign Out</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-y-auto w-full relative">
+
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-sage/10 rounded-full blur-[120px] pointer-events-none z-0 hidden lg:block"></div>
+
+            <header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
+                <div>
+                    <h1 id="mainTitle" class="text-xl md:text-2xl font-heading font-black text-forest dark:text-white">Dashboard Overview</h1>
+                </div>
+
+                <div class="flex items-center gap-3 md:gap-5">
+                     <div class="flex items-center gap-3 px-2 py-1.5 md:px-3 bg-slate-100 dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-sage transition-colors">
+                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="User Avatar" class="w-8 h-8 rounded-full object-cover border border-slate-300 dark:border-slate-600">
+                         <div class="hidden sm:block text-left pr-2">
+                             <p class="text-xs font-bold text-forest dark:text-white leading-tight">Elena Rivera</p>
+                             <p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest leading-tight">Gold Member</p>
+                         </div>
+                     </div>
+ 
+                     <div class="hidden lg:flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-3 md:pl-5">
+                         <button id="desktopRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-sage hover:bg-slate-800 transition-all shadow-sm">
+                             <span class="text-[10px] font-black uppercase">RTL</span>
+                         </button>
+                         <button id="desktopDarkToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-sage hover:bg-slate-800 transition-all shadow-sm">
+                             <i id="desktopThemeIcon" class="fas fa-moon text-sm"></i>
+                         </button>
+                     </div>
+
+                     <button id="hamburgerBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-forest dark:bg-white text-white dark:text-black shadow-md">
+                         <i class="fas fa-bars text-lg"></i>
+                     </button>
+                 </div>
+            </header>
+
+            <div class="p-6 lg:p-10 space-y-8 max-w-[1440px] mx-auto w-full relative z-10">
+
+                <!-- Dashboard View -->
+                <div id="page-dashboard" class="page-content active space-y-8">
+                    
+                    <div class="bg-forest rounded-3xl p-8 lg:p-10 relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-sage/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div>
+                                <h2 class="text-3xl font-heading font-bold text-white mb-2">Welcome back, Elena.</h2>
+                                <p class="text-sage font-medium">Your upcoming stay at the Safari Canopy is confirmed.</p>
+                            </div>
+                            <button onclick="showPage('bookings', document.querySelectorAll('.nav-link')[1])" class="shrink-0 px-6 py-3 rounded-xl bg-sage text-black font-bold text-sm tracking-wide uppercase hover:bg-white transition-colors shadow-lg">
+                                View Itinerary
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-forest dark:text-white mb-4"><i class="fas fa-suitcase-rolling text-xl"></i></div>
+                            <div><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Upcoming Stays</p><p class="text-3xl font-heading font-black text-forest dark:text-white">1</p></div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-sage/20 text-forest dark:text-sage mb-4"><i class="fas fa-history text-xl"></i></div>
+                            <div><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Past Stays</p><p class="text-3xl font-heading font-black text-forest dark:text-white">4</p></div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-forest dark:text-white mb-4"><i class="fas fa-leaf text-xl"></i></div>
+                            <div><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Eco-Points</p><p class="text-3xl font-heading font-black text-forest dark:text-white">2,450</p></div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-forest dark:text-white mb-4"><i class="fas fa-calendar-day text-xl"></i></div>
+                            <div><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Next Arrival</p><p class="text-xl font-heading font-black text-forest dark:text-white">Nov 12th</p></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        
+                        <div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="flex items-center justify-between mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">
+                                <h2 class="text-xl font-heading font-bold text-forest dark:text-white">Recent Activity</h2>
+                                <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-sage">View All</a>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="flex gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-sage/20 text-forest dark:text-sage flex items-center justify-center shrink-0 mt-1"><i class="fas fa-check-circle"></i></div>
+                                    <div>
+                                        <p class="font-bold text-sm text-forest dark:text-white">Booking Confirmed: Safari Canopy</p>
+                                        <p class="text-xs text-slate-500 font-medium mt-1">Your reservation for Nov 12 - Nov 15 has been successfully processed.</p>
+                                        <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-2">2 Days Ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center shrink-0 mt-1"><i class="fas fa-spa"></i></div>
+                                    <div>
+                                        <p class="font-bold text-sm text-forest dark:text-white">Experience Added: Forest Bathing Spa</p>
+                                        <p class="text-xs text-slate-500 font-medium mt-1">You added a 90-minute couples massage to your itinerary.</p>
+                                        <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-2">1 Week Ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-forest rounded-3xl p-8 border border-forest shadow-xl relative overflow-hidden">
+                            <h2 class="text-xl font-heading font-bold text-white mb-6">Concierge Services</h2>
+                            
+                            <div class="space-y-3 relative z-10">
+                                <a href="#" class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-sage hover:text-black transition-colors group">
+                                    <i class="fas fa-plus-circle w-5 text-center"></i>
+                                    <span class="font-bold text-sm tracking-wide">Book Another Stay</span>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-sage hover:text-black transition-colors group">
+                                    <i class="fas fa-concierge-bell w-5 text-center"></i>
+                                    <span class="font-bold text-sm tracking-wide">Message Concierge</span>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-sage hover:text-black transition-colors group">
+                                    <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                                    <span class="font-bold text-sm tracking-wide">View Resort Map</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings View -->
+                <div id="page-bookings" class="page-content space-y-6">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+                        <h2 class="text-xl sm:text-2xl font-heading font-bold text-forest dark:text-white">Reservation History</h2>
+                        <button class="w-full sm:w-auto px-6 py-2.5 bg-sage text-black rounded-xl font-bold text-xs uppercase tracking-widest shadow-md hover:bg-forest hover:text-white transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-calendar-plus"></i> New Booking
+                        </button>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto hidden sm:block">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 dark:bg-slate-950/50 text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200 dark:border-slate-800">
+                                        <th class="p-5 font-bold">Accommodation</th>
+                                        <th class="p-5 font-bold">Dates</th>
+                                        <th class="p-5 font-bold">Status</th>
+                                        <th class="p-5 font-bold">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <tr class="border-b border-slate-100 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="p-5">
+                                            <p class="font-bold text-forest dark:text-white text-base">The Safari Canopy</p>
+                                            <p class="text-slate-500 text-xs mt-1">Glamping Tent • 2 Guests</p>
+                                        </td>
+                                        <td class="p-5 font-medium text-slate-600 dark:text-slate-400">Nov 12 - Nov 15, 2026</td>
+                                        <td class="p-5">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-sage/20 text-forest dark:text-sage text-xs font-bold uppercase tracking-wider">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-forest dark:bg-sage"></span> Confirmed
+                                            </span>
+                                        </td>
+                                        <td class="p-5">
+                                            <button class="text-slate-400 hover:text-sage transition-colors font-bold text-xs uppercase tracking-widest">Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors opacity-70">
+                                        <td class="p-5">
+                                            <p class="font-bold text-forest dark:text-white text-base">Glass Eco-Villa</p>
+                                            <p class="text-slate-500 text-xs mt-1">Resort Villa • 4 Guests</p>
+                                        </td>
+                                        <td class="p-5 font-medium text-slate-600 dark:text-slate-400">Mar 05 - Mar 08, 2025</td>
+                                        <td class="p-5">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Completed
+                                            </span>
+                                        </td>
+                                        <td class="p-5">
+                                            <button class="text-slate-400 hover:text-sage transition-colors font-bold text-xs uppercase tracking-widest">Receipt</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="sm:hidden divide-y divide-slate-100 dark:divide-slate-800">
+                            <div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <div class="flex items-start justify-between gap-3 mb-3">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-bold text-forest dark:text-white text-base truncate">The Safari Canopy</p>
+                                        <p class="text-xs text-slate-500 truncate">Glamping Tent • 2 Guests</p>
+                                    </div>
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-sage/20 text-forest dark:text-sage text-[10px] font-bold uppercase tracking-wider shrink-0">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-forest dark:bg-sage"></span> Confirmed
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                                        <i class="fas fa-calendar-alt text-sage text-[10px]"></i>
+                                        <span>Nov 12 - Nov 15, 2026</span>
+                                    </div>
+                                    <button class="text-xs font-bold uppercase tracking-widest text-sage hover:text-forest transition-colors">Details</button>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <div class="flex items-start justify-between gap-3 mb-3">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-bold text-forest dark:text-white text-base truncate">Glass Eco-Villa</p>
+                                        <p class="text-xs text-slate-500 truncate">Resort Villa • 4 Guests</p>
+                                    </div>
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider shrink-0">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Completed
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                                        <i class="fas fa-calendar-alt text-slate-400 text-[10px]"></i>
+                                        <span>Mar 05 - Mar 08, 2025</span>
+                                    </div>
+                                    <button class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-sage transition-colors">Receipt</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiences View -->
+                <div id="page-experiences" class="page-content space-y-8">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
+                        <h2 class="text-xl sm:text-2xl font-heading font-bold text-forest dark:text-white">Curated Experiences</h2>
+                        <button class="w-full sm:w-auto px-5 py-2.5 text-xs font-bold uppercase tracking-widest bg-forest dark:bg-white text-white dark:text-black rounded-xl shadow-md hover:bg-sage transition-colors text-center">
+                            Explore More
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+                        
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\spa.avif" alt="Spa" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 bg-sage text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10">
+                                    Booked
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Forest Bathing Spa</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5 leading-relaxed line-clamp-2">A 90-minute couples massage utilizing organic, wild-harvested botanicals in an open-air pavilion.</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-1">
+                                    <span class="flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white">
+                                        <i class="fas fa-calendar text-sage text-[10px] sm:text-xs"></i> Nov 13, 2:00 PM
+                                    </span>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-sage">Confirmed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\dining.avif" alt="Dining" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Foraging & Fire Dining</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5 leading-relaxed line-clamp-2">Join our chef to forage local ingredients, culminating in a multi-course dinner cooked over an open flame.</p>
+                                </div>
+                                <button class="w-full mt-auto pt-1 text-xs font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-800 px-4 py-2.5 rounded-xl hover:bg-sage hover:text-black transition-colors">
+                                    Add to Itinerary
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\guide.avif" alt="Expedition" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Guided Expeditions</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5 leading-relaxed line-clamp-2">Explore pristine wilderness with expert local guides on half-day or full-day treks through the forest.</p>
+                                </div>
+                                <button class="w-full mt-auto pt-1 text-xs font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-800 px-4 py-2.5 rounded-xl hover:bg-sage hover:text-black transition-colors">
+                                    Add to Itinerary
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:border-sage hover:shadow-md transition-all shadow-sm">
+                            <div class="relative overflow-hidden">
+                                <img src="images\yoga.avif" alt="Yoga" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 bg-sage text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10">
+                                    Booked
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex flex-col gap-3">
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-heading font-bold text-forest dark:text-white leading-tight">Yoga & Meditation</h3>
+                                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1.5 leading-relaxed line-clamp-2">Start your day with sunrise yoga on a ridge-top platform overlooking the valley. All levels welcome.</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-1">
+                                    <span class="flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white">
+                                        <i class="fas fa-calendar text-sage text-[10px] sm:text-xs"></i> Nov 14, 7:00 AM
+                                    </span>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-sage">Confirmed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Account Settings View -->
+                <div id="page-account" class="page-content">
+                    <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 max-w-3xl mx-auto overflow-hidden shadow-sm">
+                        
+                        <div class="p-8 border-b border-slate-200 dark:border-slate-800 flex items-center gap-6 bg-slate-50 dark:bg-slate-950/50">
+                            <div class="relative">
+                                <img src="images\pro g1.avif" alt="Elena" class="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-slate-900 shadow-md">
+                                <button class="absolute bottom-0 right-0 w-8 h-8 bg-forest dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center shadow-md border-2 border-white dark:border-slate-900 hover:bg-sage transition-colors"><i class="fas fa-camera text-xs"></i></button>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-black text-forest dark:text-white">Elena Rivera</h3>
+                                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Gold Member</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">First Name</label>
+                                    <input type="text" value="Elena" class="w-full px-5 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-sage focus:ring-1 focus:ring-sage outline-none transition-all text-black dark:text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Last Name</label>
+                                    <input type="text" value="Rivera" class="w-full px-5 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-sage focus:ring-1 focus:ring-sage outline-none transition-all text-black dark:text-white">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Account Email</label>
+                                    <input type="email" value="elena.rivera@example.com" class="w-full px-5 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-sage focus:ring-1 focus:ring-sage outline-none transition-all text-black dark:text-white">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Dietary Requirements</label>
+                                    <input type="text" value="Vegetarian, Gluten-Free" class="w-full px-5 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-sage focus:ring-1 focus:ring-sage outline-none transition-all text-black dark:text-white">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Special Requests / Occasions</label>
+                                    <textarea rows="3" class="w-full px-5 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-sage focus:ring-1 focus:ring-sage outline-none transition-all text-black dark:text-white resize-none">Celebrating our 5th anniversary during the upcoming stay.</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-4 mt-8">
+                                <button class="px-8 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Cancel</button>
+                                <button class="px-8 py-4 rounded-xl bg-forest dark:bg-white text-white dark:text-black font-bold text-sm shadow-lg hover:bg-sage dark:hover:bg-sage transition-all">Save Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        /* ===============================
+           TAB SWITCHING LOGIC
+        ================================ */
+        function showPage(pageId, element) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            // Update Header Title
+            const titles = {
+                'dashboard': 'Dashboard Overview',
+                'bookings': 'My Bookings',
+                'experiences': 'Curated Experiences',
+                'account': 'Account Settings'
+            };
+            document.getElementById('mainTitle').innerText = titles[pageId];
+
+            // Reset Nav Styling
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-sage', 'text-black', 'shadow-[0_0_20px_rgba(143,175,138,0.2)]');
+                link.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
+                link.querySelector('span:first-of-type').classList.remove('font-bold');
+                link.querySelector('span:first-of-type').classList.add('font-medium');
+            });
+
+            // Set Active Nav Styling
+            if(element) {
+                element.classList.remove('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
+                element.classList.add('bg-sage', 'text-black', 'shadow-[0_0_20px_rgba(143,175,138,0.2)]');
+                element.querySelector('span:first-of-type').classList.remove('font-medium');
+                element.querySelector('span:first-of-type').classList.add('font-bold');
+            }
+
+            // Close sidebar on mobile after clicking
+            if (window.innerWidth < 1024) closeSidebar();
+        }
+
+        /* ===============================
+           SIDEBAR, THEME & RTL LOGIC
+        ================================ */
+        const htmlElement = document.documentElement;
+        const desktopThemeBtn = document.getElementById("desktopDarkToggle");
+        const desktopThemeIcon = document.getElementById("desktopThemeIcon");
+        const desktopRtlBtn = document.getElementById("desktopRtlToggle");
+        
+        const mobileThemeBtn = document.getElementById("mobileDarkToggle");
+        const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+        const mobileRtlBtn = document.getElementById("mobileRtlToggle");
+        
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+        // Theme initialization
+        function applyTheme() {
+            let theme = localStorage.getItem('ecoretreat-dark') === 'true';
+            if (theme) {
+                htmlElement.classList.add('dark');
+                if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-sun text-sage';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun text-sage';
+            } else {
+                htmlElement.classList.remove('dark');
+                if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-moon';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.setItem('ecoretreat-dark', isDark);
+            applyTheme();
+        }
+
+        if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        // RTL Logic
+        function toggleRTL() {
+            const currentDir = htmlElement.getAttribute("dir");
+            const newDir = currentDir === "rtl" ? "ltr" : "rtl";
+            htmlElement.setAttribute("dir", newDir);
+            localStorage.setItem("ecoretreat-rtl", newDir);
+        }
+
+        if (desktopRtlBtn) desktopRtlBtn.addEventListener('click', toggleRTL);
+        if (mobileRtlBtn) mobileRtlBtn.addEventListener('click', toggleRTL);
+
+        // Sidebar Logic for Mobile
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.remove('opacity-100');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            document.body.style.overflow = '';
+        }
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+        if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+
+        // Init page load
+        applyTheme();
+        const savedRTL = localStorage.getItem("ecoretreat-rtl");
+        if (savedRTL) htmlElement.setAttribute("dir", savedRTL);
+    </script>
+</body>
+</html>

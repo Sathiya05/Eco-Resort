@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | EcoRetreat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { forest: '#2F5D50', sage: '#8FAF8A', black: '#000000', white: '#FFFFFF', offwhite: '#F9FAF9' },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-offwhite dark:bg-slate-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+  <div id="navbar"></div>
+  <main class="flex-grow pt-24">
+
+    <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <img src="images\bg5.avif" alt="Mountain forest landscape" class="absolute inset-0 w-full h-full object-cover z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-forest/80 via-forest/60 to-black/80 z-0"></div>
+      <div class="relative z-10 max-w-[900px] mx-auto px-6 text-center">
+        <span class="inline-block py-1 px-3 border border-sage text-sage text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm bg-forest/30">About EcoRetreat</span>
+        <h1 class="text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-6">Born from a love of <span class="text-sage italic">the wild</span>.</h1>
+        <p class="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed">Our story is rooted in a simple belief — that luxury and nature belong together.</p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Our Story</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-6">A vision born in the valley.</h2>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-6">EcoRetreat was founded in 2019 by lifelong conservationists Maya Torres and James Whitfield. After spending years traveling the world studying sustainable hospitality, they discovered this untouched valley and knew they had found home.</p>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-6">What began as a small collection of canvas tents has grown into a world-renowned eco-resort that proves luxury and environmental stewardship are not mutually exclusive. Every structure was designed with a minimal footprint — using reclaimed timber, solar power, and rainwater harvesting systems.</p>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed">Today, EcoRetreat welcomes guests from around the globe, offering them a chance to experience nature without compromising on comfort.</p>
+          </div>
+          <div class="relative h-[400px] md:h-[550px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="images\img5.avif" alt="EcoRetreat property" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10 text-center">
+        <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Mission & Vision</span>
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 max-w-3xl mx-auto">Redefining what luxury means.</h2>
+        <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto mt-12 text-left">
+          <div class="border-l-4 border-sage pl-6">
+            <h3 class="text-xl font-heading font-bold text-sage mb-3">Our Mission</h3>
+            <p class="text-white/80 text-sm leading-relaxed">To create transformative travel experiences that inspire a deeper connection with nature while actively protecting and restoring the ecosystems we inhabit.</p>
+          </div>
+          <div class="border-l-4 border-sage pl-6">
+            <h3 class="text-xl font-heading font-bold text-sage mb-3">Our Vision</h3>
+            <p class="text-white/80 text-sm leading-relaxed">A world where sustainable hospitality is the standard, not the exception. We envision a future where every journey contributes positively to the planet and its people.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Our Values</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">What we stand for.</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center p-8 bg-offwhite dark:bg-slate-700 rounded-2xl shadow-lg">
+            <div class="w-14 h-14 rounded-full bg-forest text-sage flex items-center justify-center text-xl mx-auto mb-5"><i class="fa-solid fa-earth-americas"></i></div>
+            <h3 class="text-lg font-heading font-bold text-forest dark:text-white mb-3">Sustainability</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">Every decision is filtered through the lens of environmental impact. We strive for net-positive operations.</p>
+          </div>
+          <div class="text-center p-8 bg-offwhite dark:bg-slate-700 rounded-2xl shadow-lg">
+            <div class="w-14 h-14 rounded-full bg-forest text-sage flex items-center justify-center text-xl mx-auto mb-5"><i class="fa-solid fa-handshake"></i></div>
+            <h3 class="text-lg font-heading font-bold text-forest dark:text-white mb-3">Community</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">We partner with local artisans, farmers, and guides to ensure our success uplifts the surounding region of hills.</p>
+          </div>
+          <div class="text-center p-8 bg-offwhite dark:bg-slate-700 rounded-2xl shadow-lg">
+            <div class="w-14 h-14 rounded-full bg-forest text-sage flex items-center justify-center text-xl mx-auto mb-5"><i class="fa-solid fa-gem"></i></div>
+            <h3 class="text-lg font-heading font-bold text-forest dark:text-white mb-3">Excellence</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">Luxury without compromise. From our linens to our cuisine, every detail is curated for comfort and beauty.</p>
+          </div>
+          <div class="text-center p-8 bg-offwhite dark:bg-slate-700 rounded-2xl shadow-lg">
+            <div class="w-14 h-14 rounded-full bg-forest text-sage flex items-center justify-center text-xl mx-auto mb-5"><i class="fa-solid fa-compass"></i></div>
+            <h3 class="text-lg font-heading font-bold text-forest dark:text-white mb-3">Adventure</h3>
+            <p class="text-black/70 dark:text-white/70 text-sm leading-relaxed">We believe the best memories are made outside your comfort zone — so we make it easy to explore the world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-offwhite dark:bg-slate-900">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Meet the Team</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white mb-6">The people behind the retreat.</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div class="text-center">
+            <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sage/30 shadow-xl">
+              <img src="images\g1.avif" alt="Maya Torres" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-heading font-bold text-forest dark:text-white">Maya Torres</h3>
+            <p class="text-sage text-sm font-bold uppercase tracking-wider mb-3">Co-Founder & CEO</p>
+            <p class="text-black/60 dark:text-white/60 text-sm max-w-xs mx-auto leading-relaxed">Conservation biologist turned hospitality visionary. Maya brings 15 years of eco-lodge experience.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sage/30 shadow-xl">
+              <img src="images\b1.avif" alt="James Whitfield" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-heading font-bold text-forest dark:text-white">James Whitfield</h3>
+            <p class="text-sage text-sm font-bold uppercase tracking-wider mb-3">Co-Founder & COO</p>
+            <p class="text-black/60 dark:text-white/60 text-sm max-w-xs mx-auto leading-relaxed">Former luxury hotel executive who traded the boardroom for the forest. James oversees operations.</p>
+          </div>
+          <div class="text-center md:col-span-2 lg:col-span-1">
+            <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sage/30 shadow-xl">
+              <img src="images\g2.avif" alt="Linh Nguyen" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-heading font-bold text-forest dark:text-white">Linh Nguyen</h3>
+            <p class="text-sage text-sm font-bold uppercase tracking-wider mb-3">Head of Experiences</p>
+            <p class="text-black/60 dark:text-white/60 text-sm max-w-xs mx-auto leading-relaxed">Award-winning wellness curator and certified forest therapy guide from Vietnam.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Sustainability Commitment</span>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Built to last, built to give back.</h2>
+          <p class="text-white/80 font-medium leading-relaxed">Our commitment to the planet goes beyond buzzwords. Here's how we turn our values into action every day.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-8">
+          <div class="bg-white/5 backdrop-blur-sm border border-sage/20 p-6 md:p-6 lg:p-8 rounded-2xl">
+            <div class="text-sage text-3xl mb-5"><i class="fa-solid fa-solar-panel"></i></div>
+            <h3 class="text-xl font-heading font-bold mb-3">100% Renewable Energy</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Our entire resort runs on solar and hydro power. We generate 120% of our energy needs, feeding the surplus back to the local grid.</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-sage/20 p-6 md:p-6 lg:p-8 rounded-2xl">
+            <div class="text-sage text-3xl mb-5"><i class="fa-solid fa-droplet"></i></div>
+            <h3 class="text-xl font-heading font-bold mb-3">Water Stewardship</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Rainwater harvesting and greywater filtration systems supply 80% of our water needs. Low-flow are standard in suite.</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-sage/20 p-6 md:p-6 lg:p-8 rounded-2xl">
+            <div class="text-sage text-3xl mb-5"><i class="fa-solid fa-seedling"></i></div>
+            <h3 class="text-xl font-heading font-bold mb-3">Regenerative Practices</h3>
+            <p class="text-white/70 text-sm leading-relaxed">For every guest night, we plant a native tree. Our organic garden supplies 60% of our restaurant's produce year-round and round.</p>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href="sustainability.html" class="inline-flex items-center gap-2 text-sage font-bold hover:text-white transition-colors group uppercase tracking-wide text-sm">Read Full Report <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-800">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="images\img6.avif" alt="Community impact" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <span class="text-sage font-bold uppercase tracking-widest text-xs mb-4 block">Community Impact</span>
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-forest dark:text-white leading-tight mb-6">Lifting up the valley.</h2>
+            <p class="text-black/70 dark:text-white/70 font-medium leading-relaxed mb-6">EcoRetreat partners with 8 local communities, providing fair-wage employment, skills training, and a market for traditional crafts and produce. We've helped fund a community school, a health clinic, and a reforestation cooperative that employs over 50 local families.</p>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-people-group"></i></div><div><p class="text-forest dark:text-white font-heading font-bold">85% Local Employment</p><p class="text-black/60 dark:text-white/60 text-sm">Majority of our team comes from nearby villages</p></div></div>
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-graduation-cap"></i></div><div><p class="text-forest dark:text-white font-heading font-bold">$250k+ in Education</p><p class="text-black/60 dark:text-white/60 text-sm">Funds raised for local schools and scholarships</p></div></div>
+              <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-forest text-sage flex items-center justify-center shrink-0"><i class="fa-solid fa-hand-holding-heart"></i></div><div><p class="text-forest dark:text-white font-heading font-bold">Fair Trade Partnerships</p><p class="text-black/60 dark:text-white/60 text-sm">Sourcing ingredients and crafts at above-market prices</p></div></div>
+            </div>
+            <a href="contact.html" class="inline-flex items-center gap-2 text-forest dark:text-white font-bold hover:text-sage dark:hover:text-sage transition-colors group uppercase tracking-wide text-sm">Get Involved <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-forest dark:bg-slate-950 text-white">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-10 text-center">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Ready to experience EcoRetreat?</h2>
+        <p class="text-white/80 font-medium leading-relaxed max-w-2xl mx-auto mb-10">Whether you're dreaming of a romantic getaway, a family adventure, or a solo wellness retreat — we can't wait to welcome you.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="book.html" class="px-8 py-4 bg-sage text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300 shadow-lg">Book Your Stay</a>
+          <a href="contact.html" class="px-8 py-4 border-2 border-white text-white font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-forest transition-colors duration-300">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer"></div>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
+
+
+
